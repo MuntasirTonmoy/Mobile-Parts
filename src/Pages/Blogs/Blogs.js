@@ -95,20 +95,36 @@ const Blogs = () => {
               Then I will map the products array and after that I will filter
               the product by the name from the input field
             </li>
-            <li>
-              const [searchText, setSearchText] = useState(' ');
-              <br></br>
-              const handleSearchText = (e) =&gt; &#123; <br /> const selected =
-              e.target.search.value;
-              <br />
-              setSearchText(searchText);
-              <br />
-              &#125;
-              <br />
-              const selectedProducts = products.map(product =&gt; product.name
-              === searchText);
-            </li>
+            <br />
+            const [searchText, setSearchText] = useState(' ');
+            <br></br>
+            const handleSearchText = (e) =&gt; &#123; <br /> const selected =
+            e.target.search.value;
+            <br />
+            setSearchText(searchText);
+            <br />
+            &#125;
+            <br />
+            const selectedProducts = products.map(product =&gt; product.name ===
+            searchText);
           </ul>
+        </div>
+      </div>
+      <div className="card w-100 bg-base-100 border lg:mx-16 sm: mx-3 mt-10 text-left">
+        <div className="card-body">
+          <p className="text-xl font-serif">
+            Q. Why you do not set the state directly in React. For example, if
+            you have const [products, setProducts] = useState([]). Why you do
+            not set products = [...] instead, you use the setProducts ?
+          </p>
+          <p className="text-lg">
+            <span className="text-xl text-green-500">Ans.</span> We use
+            setProducts because setProducts triggered the render function and
+            tells React that the component and its children needs to be needs to
+            be rerender with the update state. It means that setProducts helps
+            to update the latest value to the state variable and it shows the
+            updated value in the UI by Rerendering the component and its child.
+          </p>
         </div>
       </div>
     </>
