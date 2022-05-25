@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FcPhoneAndroid } from "react-icons/fc";
 
 const Navbar = () => {
   return (
@@ -27,69 +29,30 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
-              </li>
-              <li tabIndex="0">
-                <a className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
+                <Link to="/blogs">Blogs</Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Mobile Parts</a>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
+          <Link to="/">
+            <span className="font-serif btn lg:flex hidden btn-ghost text-center normal-case text-xl">
+              <FcPhoneAndroid className="text-2xl mr-px"></FcPhoneAndroid>{" "}
+              Mobile Parts
+            </span>
+          </Link>
+          <ul className="menu menu-horizontal p-0 lg:flex hidden">
             <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex="0">
-              <a>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
+              <Link to="/blogs">Blogs</Link>
             </li>
           </ul>
         </div>
+        <div className="navbar-center  lg:hidden">
+          <Link to="/">
+            <span className=" font-serif btn btn-ghost   text-center normal-case text-xl">
+              Mobile Parts
+            </span>
+          </Link>
+        </div>
+
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
@@ -102,16 +65,10 @@ const Navbar = () => {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
+                <Link to="signUp">
+                  signup
                   <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
+                </Link>
               </li>
             </ul>
           </div>
