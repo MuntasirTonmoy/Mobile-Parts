@@ -5,7 +5,7 @@ import { FcPhoneAndroid } from "react-icons/fc";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-slate-50">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -31,6 +31,9 @@ const Navbar = () => {
               <li>
                 <Link to="/blogs">Blogs</Link>
               </li>
+              <li>
+                <Link to="/myPortfolio">My Portfolio</Link>
+              </li>
             </ul>
           </div>
           <Link to="/">
@@ -42,6 +45,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0 lg:flex hidden">
             <li>
               <Link to="/blogs">Blogs</Link>
+            </li>
+            <li>
+              <Link to="/myPortfolio">My Portfolio</Link>
             </li>
           </ul>
         </div>

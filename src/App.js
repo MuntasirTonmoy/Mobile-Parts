@@ -21,6 +21,10 @@ function App() {
           element={<MyPortfolio></MyPortfolio>}
         ></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route
+          path="/myPortfolio"
+          element={<MyPortfolio></MyPortfolio>}
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>

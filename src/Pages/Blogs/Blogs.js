@@ -3,7 +3,7 @@ import React from "react";
 const Blogs = () => {
   return (
     <>
-      <div className="card w-100 bg-base-100 border lg:mx-16 sm: mx-3 mt-10 text-left">
+      <div className="card w-100 bg-base-100 border lg:mx-10 sm: mx-5 mt-10 text-left">
         <div className="card-body">
           <p className="text-xl font-serif">
             Q. How will you improve the performance of a React Application?
@@ -24,7 +24,7 @@ const Blogs = () => {
           </ul>
         </div>
       </div>
-      <div className="card w-100 bg-base-100 border lg:mx-16 sm: mx-3 mt-10 text-left">
+      <div className="card w-100 bg-base-100 border lg:mx-10 sm: mx-5 mt-10 text-left">
         <div className="card-body">
           <p className="text-xl font-serif">
             Q. What are the different ways to manage a state in a React
@@ -45,7 +45,7 @@ const Blogs = () => {
           </ul>
         </div>
       </div>
-      <div className="card w-100 bg-base-100 border lg:mx-16 sm: mx-3 mt-10 text-left">
+      <div className="card w-100 bg-base-100 border lg:mx-10 sm: mx-5 mt-10 text-left">
         <div className="card-body">
           <p className="text-xl font-serif">
             Q. What is a unit test? Why should write unit tests?
@@ -74,7 +74,7 @@ const Blogs = () => {
           </ul>
         </div>
       </div>
-      <div className="card w-100 bg-base-100 border lg:mx-16 sm: mx-3 mt-10 text-left">
+      <div className="card w-100 bg-base-100 border lg:mx-10 sm: mx-5 mt-10 text-left">
         <div className="card-body">
           <p className="text-xl font-serif">
             Q. You have an array of products. Each product has a name, price,
@@ -110,7 +110,7 @@ const Blogs = () => {
           </ul>
         </div>
       </div>
-      <div className="card w-100 bg-base-100 border lg:mx-16 sm: mx-3 mt-10 text-left">
+      <div className="card w-100 bg-base-100 border lg:mx-10 sm: mx-5 mt-10 text-left">
         <div className="card-body">
           <p className="text-xl font-serif">
             Q. Why you do not set the state directly in React. For example, if

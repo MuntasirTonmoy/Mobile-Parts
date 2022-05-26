@@ -9,8 +9,8 @@ const Error404 = () => {
           <span className="text-[8rem] font-bold text-gray-500 mx-auto flex justify-center">
             <HiOutlineEmojiSad></HiOutlineEmojiSad>
           </span>
-          <p className="text-5xl font-bold text-gray-600 mt-3">404 :(</p>
-          <p className="text-2xl text-gray-400  mt-5">Page not found</p>
+          <p className="text-6xl font-bold text-gray-400 mt-3">404</p>
+          <p className="text-2xl text-gray-400  mt-3">Page not found</p>
         </div>
       </div>
     </>
