@@ -12,7 +12,7 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
   return (
     <>
-      <div className="navbar bg-slate-50">
+      <div className="navbar sticky top-0 z-50 bg-slate-50">
         <div className="navbar-start">
           {/* Mobile */}
           <div className="dropdown">
@@ -72,7 +72,7 @@ const Navbar = () => {
             <>
               <div className="dropdown dropdown-end lg:hidden flex">
                 <label tabIndex="0" className="btn btn-ghost btn-circle">
-                  <AiOutlineLogin className="text-2xl "></AiOutlineLogin>
+                  <BiLogIn className="text-2xl mr-2"></BiLogIn>
                 </label>
                 <ul
                   tabIndex="0"

@@ -8,7 +8,10 @@ import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Header/Navbar";
 import SignUp from "./Pages/SignUp/SignUp";
-import Loading from "./Pages/Utilities/Loading";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { Slide } from "react-toastify";
+import PasswordRecovery from "./Pages/PasswordRecovery/PasswordRecovery";
 
 function App() {
   return (
@@ -26,10 +29,26 @@ function App() {
           element={<MyPortfolio></MyPortfolio>}
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route
+          path="/resetPassword"
+          element={<PasswordRecovery></PasswordRecovery>}
+        ></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="/*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer
+        position="top-right"
+        transition={Slide}
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
