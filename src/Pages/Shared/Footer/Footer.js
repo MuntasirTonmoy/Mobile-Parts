@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <footer className="footer p-10 mt-10 bg-slate-50 text-base-content">
         <div>
-          <p className="text-2xl">Mobile Parts</p>
+          <p className="text-3xl font-serif">Mobile Parts</p>
 
           <p>Trusted Mobile parts supplier since 2022</p>
         </div>
