@@ -10,8 +10,8 @@ import { FcGoogle } from "react-icons/fc";
 import { MdOutlineAdd } from "react-icons/md";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import CustomLink from "../Utilities/CustomLink";
 
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -55,9 +55,9 @@ const SignUp = () => {
           <h1 className=" text-3xl text-center font-bold uppercase">Sign up</h1>
           <p className="text-sm text-center mt-2 mb-2">
             Already have an account?{" "}
-            <Link to="/login">
+            <CustomLink to="/login">
               <span className="text-accent font-bold">Login</span>
-            </Link>
+            </CustomLink>
           </p>
           <label className="label">
             <span className="label-text">Name</span>

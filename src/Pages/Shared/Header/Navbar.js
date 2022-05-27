@@ -1,12 +1,12 @@
 import React from "react";
 import logo from "../../../logo.png";
-import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BiLogIn } from "react-icons/bi";
 import { AiOutlineLogin, AiOutlineUserAdd } from "react-icons/ai";
 import { FiPower } from "react-icons/fi";
 import { signOut } from "firebase/auth";
+import CustomLink from "../../Utilities/CustomLink";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -37,32 +37,32 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold uppercase"
             >
               <li>
-                <Link to="/blogs">Blogs</Link>
+                <CustomLink to="/blogs">Blogs</CustomLink>
               </li>
               <hr />
               <li>
-                <Link to="/myPortfolio">My Portfolio</Link>
+                <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
               </li>
             </ul>
           </div>
 
           {/* pc */}
-          <Link to="/">
+          <CustomLink to="/">
             <img src={logo} className="w-[200px] hidden lg:block" alt="" />
-          </Link>
+          </CustomLink>
           <ul className="menu menu-horizontal p-0 lg:flex hidden font-bold uppercase">
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <CustomLink to="/blogs">Blogs</CustomLink>
             </li>
             <li>
-              <Link to="/myPortfolio">My Portfolio</Link>
+              <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
             </li>
           </ul>
         </div>
         <div className="navbar-center  lg:hidden">
-          <Link to="/">
+          <CustomLink to="/">
             <img src={logo} className="w-[200px]" alt="" />
-          </Link>
+          </CustomLink>
         </div>
 
         <div className="navbar-end">
@@ -79,21 +79,21 @@ const Navbar = () => {
                   className="mt-14  p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link to="/login">
+                    <CustomLink to="/login">
                       <span className=" btn-sm w-full btn-secondary rounded flex items-center justify-center gap-2 uppercase font-bold">
                         <BiLogIn className="text-2xl"></BiLogIn>
                         Login
                       </span>
-                    </Link>
+                    </CustomLink>
                   </li>
                   <hr />
                   <li>
-                    <Link to="/signUp">
+                    <CustomLink to="/signUp">
                       <span className=" btn-sm w-full btn-primary  rounded flex items-center justify-center gap-2 uppercase font-bold">
                         <AiOutlineUserAdd className="text-2xl"></AiOutlineUserAdd>
                         Sign Up
                       </span>
-                    </Link>
+                    </CustomLink>
                   </li>
                 </ul>
               </div>
@@ -170,18 +170,18 @@ const Navbar = () => {
           ) : (
             <>
               <div className="items-center gap-5 hidden lg:flex">
-                <Link to="/login">
+                <CustomLink to="/login">
                   <span className=" btn pr-5 btn-secondary rounded flex items-center justify-center gap-2 uppercase font-bold">
                     <BiLogIn className="text-2xl"></BiLogIn>
                     Login
                   </span>
-                </Link>
-                <Link to="/signUp">
+                </CustomLink>
+                <CustomLink to="/signUp">
                   <span className=" btn pr-5 mr-3 btn-primary  rounded flex items-center justify-center gap-2 uppercase font-bold">
                     <AiOutlineUserAdd className="text-2xl"></AiOutlineUserAdd>
                     Sign Up
                   </span>
-                </Link>
+                </CustomLink>
               </div>
             </>
           )}

@@ -1,11 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { BiLock } from "react-icons/bi";
+import { BiLock, BiMailSend } from "react-icons/bi";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
+import CustomLink from "../Utilities/CustomLink";
 
 const PasswordRecovery = () => {
   const [sendPasswordResetEmail, sending, error] =
@@ -76,13 +76,13 @@ const PasswordRecovery = () => {
             type="submit"
             className="flex items-center justify-center gap-2 btn  text-white text-md mt-2"
           >
-            Submit
+            <BiMailSend className="text-2xl mr-1"></BiMailSend>Send
           </button>
-          <Link to="/login">
+          <CustomLink to="/login">
             <p className="flex justify-center items-center text-accent text-sm mt-6">
               <IoIosArrowBack className="text-xl"></IoIosArrowBack>Back to Login
             </p>
-          </Link>
+          </CustomLink>
         </div>
       </form>
     </>

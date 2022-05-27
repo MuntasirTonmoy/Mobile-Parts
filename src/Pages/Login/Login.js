@@ -9,8 +9,8 @@ import { FcGoogle } from "react-icons/fc";
 import { BiLogIn } from "react-icons/bi";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import CustomLink from "../Utilities/CustomLink";
 
 const Login = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -53,9 +53,9 @@ const Login = () => {
           <h1 className=" text-3xl text-center font-bold uppercase">Login</h1>
           <p className="text-sm text-center mt-2 mb-2">
             Don't have an account?{" "}
-            <Link to="/signUp">
+            <CustomLink to="/signUp">
               <span className="text-accent font-bold">Sign Up</span>
-            </Link>
+            </CustomLink>
           </p>
           <label className="label">
             <span className="label-text">Email</span>
@@ -125,15 +125,15 @@ const Login = () => {
             )}
           </label>
           <label className="label">
-            <Link to="/resetPassword">
+            <CustomLink to="/resetPassword">
               <span className="text-accent text-sm">Forgot Password?</span>
-            </Link>
+            </CustomLink>
           </label>
           <button
             type="submit"
             className="flex items-center justify-center gap-2 btn  text-white text-md mt-2"
           >
-            LogIn <BiLogIn className="text-2xl" />
+            <BiLogIn className="text-2xl mr-1" /> LogIn
           </button>
           <div className="divider my-5">OR</div>
           <button
