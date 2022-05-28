@@ -9,16 +9,15 @@ const About = () => {
           background: `url(${bg})`,
           backgroundSize: "cover",
         }}
-        className="lg:flex justify-around items-center  px-10 lg:mt-14 mt-10 py-10"
+        className="lg:flex justify-around items-center  lg:px-10 px-6 lg:mt-14 mt-10 py-10"
       >
         <div>
-          <div className="md:text-center lg:text-left">
-            <h1 className="text-5xl font-bold text-accent font-serif">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold text-primary font-serif">
               Contact Us
             </h1>
             <p className="py-3 text-xl">
-              For all queries please email us using the form.Our Customer care
-              will send you all the information in your provided email.
+              For all queries please email us using the form.
             </p>
           </div>
         </div>

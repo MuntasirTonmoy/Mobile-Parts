@@ -4,7 +4,7 @@ import Part from "./Part/Part";
 const Parts = () => {
   const [parts, setParts] = useState([]);
   useEffect(() => {
-    fetch("/parts.json")
+    fetch("http://localhost:5000/parts")
       .then((response) => response.json())
       .then((data) => setParts(data));
   }, []);
@@ -15,8 +15,8 @@ const Parts = () => {
           Our Products
         </h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-          {parts.map((part, index) => (
-            <Part key={index} part={part}></Part>
+          {parts.map((part) => (
+            <Part key={part._id} part={part}></Part>
           ))}
         </div>
       </div>

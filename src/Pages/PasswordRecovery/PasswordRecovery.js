@@ -40,7 +40,7 @@ const PasswordRecovery = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
         <div className="form-control mx-auto   lg:max-w-md max-w-xs shadow-xl p-10 rounded-2xl">
           <p>
-            <BiLock className="text-8xl text-center mx-auto bg-primary rounded-full p-4 mb-4"></BiLock>
+            <BiLock className="text-8xl text-white text-center mx-auto bg-primary rounded-full p-4 mb-4"></BiLock>
           </p>
           <h1 className=" text-3xl text-center font-bold uppercase mb-4">
             Forgot Password
@@ -74,7 +74,7 @@ const PasswordRecovery = () => {
 
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 btn  text-white text-md mt-2"
+            className="flex items-center justify-center gap-2 btn-primary btn  text-white text-md mt-2"
           >
             <BiMailSend className="text-2xl mr-1"></BiMailSend>Send
           </button>

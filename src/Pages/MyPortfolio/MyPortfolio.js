@@ -32,21 +32,21 @@ const MyPortfolio = () => {
               <li className="mt-2">
                 My Works (website Link): <br />
                 <a
-                  className="text-primary"
+                  className="text-primary font-bold"
                   href="https://muntasirtonmoy.github.io/responsive-leader-board-bootstrap5/"
                 >
                   Responsive LeaderBoard
                 </a>
                 <span> , </span>
                 <a
-                  className="text-primary"
+                  className="text-primary font-bold"
                   href="https://muntasirtonmoy.github.io/Mealdb/"
                 >
                   MealDB
                 </a>
                 <span> , </span>
                 <a
-                  className="text-primary"
+                  className="text-primary font-bold"
                   href="https://muntasirtonmoy.github.io/myBank/"
                 >
                   Simple Bank

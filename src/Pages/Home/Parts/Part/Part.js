@@ -1,9 +1,18 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Part = ({ part }) => {
-  const { name, picture, description, price, minQuantity, availableQuantity } =
-    part;
+  const navigate = useNavigate();
+  const {
+    _id,
+    name,
+    picture,
+    description,
+    price,
+    minQuantity,
+    availableQuantity,
+  } = part;
   return (
     <>
       <div className="card max-w-lg bg-base-100 shadow-xl">
@@ -20,7 +29,10 @@ const Part = ({ part }) => {
             <p>Available: {availableQuantity}</p>
           </div>
           <div className="w-full mt-2">
-            <button className="btn btn-primary text-white w-full ">
+            <button
+              onClick={() => navigate(`purchase/${_id}`)}
+              className="btn btn-primary text-white w-full "
+            >
               <FaShoppingCart className="text-xl mr-2"></FaShoppingCart>Buy Now
             </button>
           </div>

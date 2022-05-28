@@ -80,7 +80,7 @@ const Navbar = () => {
                 >
                   <li>
                     <CustomLink to="/login">
-                      <span className=" btn-sm w-full btn-outline btn-primary rounded flex items-center justify-center gap-2 uppercase font-bold">
+                      <span className=" btn-sm w-full btn btn-outline btn-primary rounded flex items-center justify-center gap-2 uppercase font-bold">
                         <BiLogIn className="text-2xl"></BiLogIn>
                         Login
                       </span>

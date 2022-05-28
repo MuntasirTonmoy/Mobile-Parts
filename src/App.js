@@ -14,6 +14,8 @@ import { Slide } from "react-toastify";
 import PasswordRecovery from "./Pages/PasswordRecovery/PasswordRecovery";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import RequireAuth from "./Pages/Utilities/RequireAuth";
+import Purchase from "./Pages/Purchase/Purchase";
 
 function App() {
   return (
@@ -21,6 +23,15 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+        <Route
+          path="/purchase/:_id"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
+
         <Route
           path="/myPortfolio"
           element={<MyPortfolio></MyPortfolio>}
