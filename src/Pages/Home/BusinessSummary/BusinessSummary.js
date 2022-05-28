@@ -6,7 +6,7 @@ import { FaShippingFast } from "react-icons/fa";
 const BusinessSummary = () => {
   return (
     <div id="summary">
-      <div className="stats w-full rounded-none text-center stats-vertical lg:stats-horizontal shadow">
+      <div className="stats w-full rounded-none text-center stats-vertical lg:stats-horizontal md:stats-horizontal shadow">
         <div className="stat">
           <span>
             <BiWorld className="text-4xl text-accent mx-auto mb-2 mt-2"></BiWorld>

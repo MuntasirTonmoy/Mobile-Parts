@@ -13,7 +13,8 @@ const Part = ({ part }) => {
         <div className="card-body">
           <div className="ml-2 text-lg">
             <h2 className="card-title text-2xl">{name}</h2>
-            <p className="mt-2">{description}</p>
+            <p className="mt-2 lg:block hidden">{description}</p>
+            <p className="mt-2 lg:hidden truncate">{description}</p>
             <p>Price: ${price}</p>
             <p>Minimun order quantity: {minQuantity}</p>
             <p>Available: {availableQuantity}</p>

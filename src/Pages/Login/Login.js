@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-10 mb-10">
         <div className="form-control mx-auto   lg:max-w-md max-w-xs shadow-xl p-10 rounded-2xl">
           <h1 className=" text-3xl text-center font-bold uppercase">Login</h1>
           <p className="text-sm text-center mt-2 mb-2">

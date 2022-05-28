@@ -50,7 +50,7 @@ const SignUp = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-10 mb-10">
         <div className="form-control mx-auto  max-w-xs lg:max-w-md shadow-xl p-10 rounded-2xl">
           <h1 className=" text-3xl text-center font-bold uppercase">Sign up</h1>
           <p className="text-sm text-center mt-2 mb-2">

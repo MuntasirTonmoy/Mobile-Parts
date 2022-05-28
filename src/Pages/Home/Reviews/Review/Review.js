@@ -7,12 +7,12 @@ const Review = ({ review }) => {
   return (
     <>
       <div>
-        <div class="card my-8 lg:mx-10 mx-8  max-w-md bg-base-100 shadow-xl">
+        <div className="card my-8 lg:mx-10 mx-8  max-w-md bg-base-100 shadow-xl">
           <figure>
-            <img src={picture} alt="user" class="rounded-full" />
+            <img src={picture} alt="user" className="rounded-full" />
           </figure>
-          <div class="card-body items-center text-center">
-            <h2 class="card-title">{name}</h2>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">{name}</h2>
             <p className="text-xl flex items-center gap-1">
               <Ratings>{ratings}</Ratings>
             </p>

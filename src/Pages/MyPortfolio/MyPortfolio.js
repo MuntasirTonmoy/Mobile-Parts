@@ -3,7 +3,7 @@ import myPhoto from "../../me.png";
 const MyPortfolio = () => {
   return (
     <>
-      <div className="card lg:w-3/4   lg:card-side bg-base-100 shadow-xl lg:mx-auto mx-5 mt-10">
+      <div className="card lg:w-3/4 lg:card-side bg-base-100 shadow-xl lg:mx-auto mx-5 mt-10 mb-10">
         <div className="lg:ml-10 mx-auto my-auto">
           <img src={myPhoto} alt="myPhoto" />
         </div>

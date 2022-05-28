@@ -5,8 +5,6 @@ import Review from "./Review/Review";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const settings = {
-    display: true,
-    height: 800,
     dots: true,
     infinite: true,
     speed: 500,
@@ -23,11 +21,10 @@ const Reviews = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 800,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
         },
       },
       {
@@ -46,7 +43,7 @@ const Reviews = () => {
   }, []);
   return (
     <>
-      <h1 className=" text-5xl text-center lg:mt-20 mt-10 font-serif text-primary font-bold">
+      <h1 className=" text-5xl text-center lg:mt-20 mt-14 font-serif text-primary font-bold">
         Buyer's Feedback
       </h1>
       <div className="mt-10  mx-auto">
