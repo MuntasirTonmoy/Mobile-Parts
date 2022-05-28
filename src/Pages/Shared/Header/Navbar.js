@@ -3,7 +3,7 @@ import logo from "../../../logo.png";
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BiLogIn } from "react-icons/bi";
-import { AiOutlineLogin, AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineUserAdd } from "react-icons/ai";
 import { FiPower } from "react-icons/fi";
 import { signOut } from "firebase/auth";
 import CustomLink from "../../Utilities/CustomLink";
@@ -80,7 +80,7 @@ const Navbar = () => {
                 >
                   <li>
                     <CustomLink to="/login">
-                      <span className=" btn-sm w-full btn-secondary rounded flex items-center justify-center gap-2 uppercase font-bold">
+                      <span className=" btn-sm w-full btn-outline btn-primary rounded flex items-center justify-center gap-2 uppercase font-bold">
                         <BiLogIn className="text-2xl"></BiLogIn>
                         Login
                       </span>
@@ -171,13 +171,13 @@ const Navbar = () => {
             <>
               <div className="items-center gap-5 hidden lg:flex">
                 <CustomLink to="/login">
-                  <span className=" btn pr-5 btn-secondary rounded flex items-center justify-center gap-2 uppercase font-bold">
+                  <span className=" btn pr-5  btn-outline btn-primary text-black rounded flex items-center justify-center gap-2 uppercase font-bold">
                     <BiLogIn className="text-2xl"></BiLogIn>
                     Login
                   </span>
                 </CustomLink>
                 <CustomLink to="/signUp">
-                  <span className=" btn pr-5 mr-3 btn-primary  rounded flex items-center justify-center gap-2 uppercase font-bold">
+                  <span className=" btn pr-5 mr-3 btn-primary text-white  rounded flex items-center justify-center gap-2 uppercase font-bold">
                     <AiOutlineUserAdd className="text-2xl"></AiOutlineUserAdd>
                     Sign Up
                   </span>

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Neal Daniel",
+    "picture": "https://randomuser.me/api/portraits/men/41.jpg",
+    "comment": "Great Service,Fast delivery, All the products are Amazing.",
+    "ratings": 5
+  },
+  {
+    "name": "Loretta Graham",
+    "picture": "https://randomuser.me/api/portraits/men/51.jpg",
+    "comment": "I bought many items from them. They are truly professional, Recommended.",
+    "ratings": 5
+  },
+  {
+    "name": "Riddle Beck",
+    "picture": "https://randomuser.me/api/portraits/men/37.jpg",
+    "comment": "Awesome service, Excellent pricing, Fast delivery. Their packaging is amazing. I got all the products in good condition.",
+    "ratings": 4
+  },
+  {
+    "name": "Navarro Holmes",
+    "picture": "https://randomuser.me/api/portraits/men/19.jpg",
+    "comment": "Very fast delivery, Amazing service, of course they are trustworthy.Thank you for delivering my products in 2 days.",
+    "ratings": 4
+  }
+]

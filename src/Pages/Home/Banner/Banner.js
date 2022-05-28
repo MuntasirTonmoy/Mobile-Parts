@@ -24,8 +24,8 @@ const Banner = () => {
               <br className="lg:block hidden" />
               Buy from us for the best experience.
             </p>
-            <Link to="summary" smooth={true} offset={-100} duration={500}>
-              <button className="btn btn-primary">
+            <Link to="summary" smooth={true} offset={-85} duration={500}>
+              <button className="btn btn-accent text-white">
                 <BsChevronDoubleDown className="text-lg mr-1"></BsChevronDoubleDown>{" "}
                 Explore more
               </button>

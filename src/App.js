@@ -12,6 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Slide } from "react-toastify";
 import PasswordRecovery from "./Pages/PasswordRecovery/PasswordRecovery";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (

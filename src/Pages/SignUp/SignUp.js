@@ -56,7 +56,7 @@ const SignUp = () => {
           <p className="text-sm text-center mt-2 mb-2">
             Already have an account?{" "}
             <CustomLink to="/login">
-              <span className="text-accent font-bold">Login</span>
+              <span className="text-primary font-bold">Login</span>
             </CustomLink>
           </p>
           <label className="label">
@@ -149,7 +149,7 @@ const SignUp = () => {
           </label>
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 btn  text-white text-md mt-2"
+            className="flex items-center justify-center gap-2 btn btn-primary  text-white text-md mt-2"
           >
             <MdOutlineAdd className="text-2xl" /> Create Account
           </button>
@@ -157,7 +157,7 @@ const SignUp = () => {
           <div className="divider my-5">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline text-md"
+            className="btn btn-primary btn-outline text-md"
           >
             <FcGoogle className="text-xl mr-2"></FcGoogle>Continue with Google
           </button>

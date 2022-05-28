@@ -54,7 +54,7 @@ const Login = () => {
           <p className="text-sm text-center mt-2 mb-2">
             Don't have an account?{" "}
             <CustomLink to="/signUp">
-              <span className="text-accent font-bold">Sign Up</span>
+              <span className="text-primary font-bold">Sign Up</span>
             </CustomLink>
           </p>
           <label className="label">
@@ -126,19 +126,19 @@ const Login = () => {
           </label>
           <label className="label">
             <CustomLink to="/resetPassword">
-              <span className="text-accent text-sm">Forgot Password?</span>
+              <span className="text-primary text-sm">Forgot Password?</span>
             </CustomLink>
           </label>
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 btn  text-white text-md mt-2"
+            className="flex items-center justify-center gap-2 btn btn-primary  text-white text-md mt-2"
           >
             <BiLogIn className="text-2xl mr-1" /> LogIn
           </button>
           <div className="divider my-5">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline text-md"
+            className="btn btn-primary btn-outline text-md"
           >
             <FcGoogle className="text-xl mr-2"></FcGoogle>Continue with Google
           </button>

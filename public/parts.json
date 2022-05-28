@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Mobile Display",
+    "picture": "https://5.imimg.com/data5/JP/DX/MC/SELLER-92848847/mobile-display-1000x1000.jpg",
+    "description": "Display for Samsung, Xiaomi, iPhone, Realme.",
+    "price": 100,
+    "minQuantity": 100,
+    "availableQuantity": 0
+  },
+  {
+    "name": "Battery for Samsung",
+    "picture": "https://m.media-amazon.com/images/I/512+JzvcyUL._AC_.jpg",
+    "description": "Battery for Samsung",
+    "price": 50,
+    "minQuantity": 100,
+    "availableQuantity": 0
+  },
+  {
+    "name": "iPhone Speaker",
+    "picture": "https://5.imimg.com/data5/ECOM/Default/2022/5/QR/QX/GN/134041916/ear-speaker-flex-cable-for-apple-iphone-12-500x500.jpg",
+    "description": "Speaker for Apple iPhone.",
+    "price": 30,
+    "minQuantity": 100,
+    "availableQuantity": 0
+  },
+  {
+    "name": "Charging Flex",
+    "picture": "https://5.imimg.com/data5/ECOM/Default/2022/5/AS/DE/WM/134041916/vivo-y69-ccflex-10228772-78c4-495a-863a-adfe50f418a5-500x500.jpg",
+    "description": "Charging flex for iPhone.",
+    "price": 15,
+    "minQuantity": 100,
+    "availableQuantity": 0
+  },
+  {
+    "name": "Motherboard",
+    "picture": "https://5.imimg.com/data5/BB/FF/MY-13635553/green-mobile-motherboard-1000x1000.jpg",
+    "description": "Motherboard for iPhone, Samsung.",
+    "price": 40,
+    "minQuantity": 100,
+    "availableQuantity": 0
+  },
+  {
+    "name": "Sim Connector",
+    "picture": "https://5.imimg.com/data5/SELLER/Default/2022/4/ME/IN/RE/94971048/20220331-230155-500x500.jpg",
+    "description": "Metal sim connector for mobile.",
+    "price": 5,
+    "minQuantity": 100,
+    "availableQuantity": 0
+  }
+]
