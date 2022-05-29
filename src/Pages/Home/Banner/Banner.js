@@ -25,7 +25,7 @@ const Banner = () => {
               Buy from us for the best experience.
             </p>
             <Link to="summary" smooth={true} offset={0} duration={500}>
-              <button className="btn btn-accent text-white">
+              <button className="btn btn-primary text-white">
                 <BsChevronDoubleDown className="text-lg mr-1"></BsChevronDoubleDown>{" "}
                 Explore more
               </button>

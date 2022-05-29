@@ -9,7 +9,7 @@ const BusinessSummary = () => {
       <div className="stats w-full rounded-none text-center stats-vertical lg:stats-horizontal md:stats-horizontal shadow">
         <div className="stat">
           <span>
-            <BiWorld className="text-4xl text-accent mx-auto mb-2 mt-2"></BiWorld>
+            <BiWorld className="text-4xl text-primary mx-auto mb-2 mt-2"></BiWorld>
           </span>
           <div className="stat-value">50+</div>
           <div className="stat-title text-primary">Countries</div>
@@ -17,7 +17,7 @@ const BusinessSummary = () => {
 
         <div className="stat">
           <span>
-            <FaShippingFast className="text-4xl text-accent mx-auto mb-2 mt-2"></FaShippingFast>
+            <FaShippingFast className="text-4xl text-primary mx-auto mb-2 mt-2"></FaShippingFast>
           </span>
           <div className="stat-value">7K+</div>
           <div className="stat-title text-primary">Order delivered</div>
@@ -25,7 +25,7 @@ const BusinessSummary = () => {
 
         <div className="stat">
           <span>
-            <BsPeopleFill className="text-4xl text-accent mx-auto mb-2 mt-2"></BsPeopleFill>
+            <BsPeopleFill className="text-4xl text-primary mx-auto mb-2 mt-2"></BsPeopleFill>
           </span>
           <div className="stat-value">5K+</div>
           <div className="stat-title text-primary">Happy Clients</div>
@@ -33,7 +33,7 @@ const BusinessSummary = () => {
 
         <div className="stat">
           <span>
-            <BsFillSuitHeartFill className="text-4xl text-accent mx-auto mb-2 mt-2"></BsFillSuitHeartFill>
+            <BsFillSuitHeartFill className="text-4xl text-primary mx-auto mb-2 mt-2"></BsFillSuitHeartFill>
           </span>
           <div className="stat-value">3K+</div>
           <div className="stat-title text-primary">Posetive Review</div>
