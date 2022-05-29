@@ -61,6 +61,16 @@ const Purchase = () => {
           setLoad(!load);
         }
       });
+
+    fetch("http://localhost:5000/myOrders", {
+      method: "POST",
+      body: JSON.stringify({ ...data, name }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {});
   };
 
   /* const [orders, setOrders] = useState({});

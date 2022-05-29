@@ -12,6 +12,19 @@ const MyOrders = () => {
       .then((data) => setMyOrders(data));
   }, [email]);
 
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/myOrders/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const rest = myOrders.filter((order) => order._id !== id);
+          setMyOrders(rest);
+        }
+      });
+  };
+
   return (
     <div className="lg:mx-10 mx-6">
       <h1 className="text-5xl text-primary text-center font-bold font-serif  mt-10 mb-10">
@@ -39,7 +52,12 @@ const MyOrders = () => {
                   </button>
                 </td>
                 <td className="border text-center">
-                  <button className="btn btn-sm btn-error">Cancel</button>
+                  <button
+                    onClick={() => handleDelete(order._id)}
+                    className="btn btn-sm btn-error"
+                  >
+                    Cancel
+                  </button>
                 </td>
               </tr>
             </tbody>
