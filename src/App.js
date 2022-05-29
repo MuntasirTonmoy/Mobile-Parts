@@ -19,6 +19,7 @@ import Purchase from "./Pages/Purchase/Purchase";
 import MyOrders from "./Pages/MyOrders/MyOrders";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddReview from "./Pages/AddReview/AddReview";
+import MyProfile from "./Pages/MyProfile/MyProfile";
 
 function App() {
   return (
@@ -44,7 +45,15 @@ function App() {
           }
         >
           <Route path="addReview" element={<AddReview></AddReview>}></Route>
-          <Route path="myOrders/:email" element={<MyOrders></MyOrders>}></Route>
+          <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
+          <Route
+            path="myOrders/:email"
+            element={
+              <RequireAuth>
+                <MyOrders></MyOrders>
+              </RequireAuth>
+            }
+          ></Route>
         </Route>
 
         <Route
