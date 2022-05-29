@@ -1,5 +1,6 @@
 import React from "react";
 import bg from "../../../bg.jpg";
+import { FiSend } from "react-icons/fi";
 
 const About = () => {
   return (
@@ -17,7 +18,8 @@ const About = () => {
               Contact Us
             </h1>
             <p className="py-3 text-xl">
-              For all queries please email us using the form.
+              For all queries please email us using the form. We will contact
+              you as soon as possible.
             </p>
           </div>
         </div>
@@ -51,7 +53,9 @@ const About = () => {
                 <textarea type="text" className="textarea textarea-bordered" />
               </div>
               <div className="form-control mt-3">
-                <button className="btn btn-primary text-white">Login</button>
+                <button className="btn btn-primary text-white">
+                  <FiSend className="text-xl mr-2"></FiSend>Send
+                </button>
               </div>
             </div>
           </div>

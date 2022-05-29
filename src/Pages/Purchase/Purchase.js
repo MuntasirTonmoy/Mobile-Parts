@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import { BsCheck2Circle } from "react-icons/bs";
+import { useForm } from "react-hook-form";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
@@ -24,9 +25,25 @@ const Purchase = () => {
     availableQuantity,
   } = selectedPart;
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: {
+      name: user?.displayName,
+      email: user?.email,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
-      <div class="card lg:card-side lg:mx-10 mx-6 lg:mt-14 mt-10 mb-10 bg-base-100 border rounded-none">
+      <div class="card lg:card-side lg:mx-10 mx-6 lg:mt-14 mt-10 mb-10 bg-base-100 border rounded-3xl">
         <div class="card-body">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
             <div className="text-lg  mx-auto">
@@ -47,20 +64,20 @@ const Purchase = () => {
             <hr className="lg:hidden " />
 
             {/*----------form------ */}
-            <div className="w-full lg:w-4/6 lg:mx-0 mx-auto lg:shadow-xl lg:rounded-3xl  lg:px-10 pb-10 text-center ">
+            <div className="w-full lg:w-4/6 lg:mx-0 mx-auto lg:shadow-xl lg:rounded-3xl  lg:px-10 lg:pb-10 text-center ">
               <h1 className="text-xl text-primary font-bold uppercase">
                 Order Form
               </h1>
-              <form action="">
-                <label class="label">
-                  <span class="label-text">Name</span>
+              <form onSubmit={handleSubmit(onSubmit)} action="">
+                <label className="label">
+                  <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Type here"
+                  name="name"
                   value={user?.displayName}
                   disabled
-                  class="input input-bordered w-full max-w-md uppercase"
+                  className="input input-bordered w-full max-w-md uppercase"
                 />
                 <label class="label">
                   <span class="label-text">Email</span>
@@ -72,32 +89,98 @@ const Purchase = () => {
                   disabled
                   class="input input-bordered w-full max-w-md"
                 />
-                <label class="label">
-                  <span class="label-text">Quantity</span>
+                <label className="label">
+                  <span className="label-text">Quantity</span>
                 </label>
                 <input
                   type="number"
-                  required
-                  min={`${minQuantity}`}
                   placeholder={`Minimum Quantity ${minQuantity}`}
-                  class="input input-bordered w-full max-w-md"
+                  className="input input-bordered w-full max-w-md"
+                  {...register("quantity", {
+                    required: {
+                      value: true,
+                      message: "Quantity is required.",
+                    },
+                    min: {
+                      value: `${minQuantity}`,
+                      message: `Quantity can't be less than ${minQuantity}`,
+                    },
+                    max: {
+                      value: `${availableQuantity}`,
+                      message: `Quantity can't be greater than ${availableQuantity}`,
+                    },
+                  })}
                 />
-                <label class="label">
-                  <span class="label-text">Phone</span>
+                <label className="label">
+                  {errors.quantity?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.quantity.message}
+                    </span>
+                  )}
+                  {errors.quantity?.type === "min" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.quantity.message}
+                    </span>
+                  )}
+                  {errors.quantity?.type === "max" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.quantity.message}
+                    </span>
+                  )}
+                </label>
+                <label className="label">
+                  <span className="label-text">Phone</span>
                 </label>
                 <input
                   type="phone"
                   placeholder=""
-                  class="input input-bordered w-full max-w-md"
+                  className="input input-bordered w-full max-w-md"
+                  {...register("phone", {
+                    required: {
+                      value: true,
+                      message: "Phone number is required.",
+                    },
+
+                    pattern: {
+                      value:
+                        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+                      message: "Please provide a valid Phone number",
+                    },
+                  })}
                 />
-                <label class="label">
-                  <span class="label-text">Address</span>
+                <label className="label">
+                  {errors.phone?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.phone.message}
+                    </span>
+                  )}
+                  {errors.phone?.type === "pattern" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.phone.message}
+                    </span>
+                  )}
+                </label>
+                <label className="label">
+                  <span className="label-text">Address</span>
                 </label>
                 <textarea
                   type="address"
                   placeholder=""
-                  class="textarea textarea-bordered w-full max-w-md"
+                  className="textarea textarea-bordered w-full max-w-md"
+                  {...register("address", {
+                    required: {
+                      value: true,
+                      message: "Address is required.",
+                    },
+                  })}
                 />
+                <label className="label">
+                  {errors.address?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.address.message}
+                    </span>
+                  )}
+                </label>
                 <div className="mt-3">
                   <button
                     type="submit"

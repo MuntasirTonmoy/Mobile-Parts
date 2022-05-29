@@ -134,7 +134,7 @@ const Navbar = () => {
               <div className=" items-center gap-5 hidden lg:flex">
                 <span
                   onClick={() => signOut(auth)}
-                  className=" btn pr-5 btn-secondary rounded flex items-center justify-center gap-2 uppercase font-bold"
+                  className=" btn pr-5 btn-primary btn-outline rounded flex items-center justify-center gap-2 uppercase font-bold"
                 >
                   <FiPower className="text-2xl"></FiPower>
                   Log out
