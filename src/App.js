@@ -17,6 +17,8 @@ import "slick-carousel/slick/slick-theme.css";
 import RequireAuth from "./Pages/Utilities/RequireAuth";
 import Purchase from "./Pages/Purchase/Purchase";
 import MyOrders from "./Pages/MyOrders/MyOrders";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import AddReview from "./Pages/AddReview/AddReview";
 
 function App() {
   return (
@@ -32,14 +34,18 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+
         <Route
-          path="/myOrders/:email"
+          path="/dashboard"
           element={
             <RequireAuth>
-              <MyOrders></MyOrders>
+              <Dashboard></Dashboard>
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route path="addReview" element={<AddReview></AddReview>}></Route>
+          <Route path="myOrders/:email" element={<MyOrders></MyOrders>}></Route>
+        </Route>
 
         <Route
           path="/myPortfolio"

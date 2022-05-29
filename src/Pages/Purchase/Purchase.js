@@ -7,28 +7,17 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const Purchase = () => {
-  const [load, setLoad] = useState(true);
   const [user] = useAuthState(auth);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    mode: "onChange",
-    defaultValues: {
-      name: user?.displayName,
-      email: user?.email,
-    },
-  });
-
   const { id } = useParams();
+
   const [selectedPart, setSelectedPart] = useState({});
   useEffect(() => {
     fetch(`http://localhost:5000/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setSelectedPart(data));
   }, [id]);
+
+  const [load, setLoad] = useState(true);
 
   const {
     _id,
@@ -39,11 +28,25 @@ const Purchase = () => {
     minQuantity,
     availableQuantity,
   } = selectedPart;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      userName: user?.displayName,
+      email: user?.email,
+    },
+  });
 
   const onSubmit = (data) => {
+    const { name } = selectedPart;
+
     fetch("http://localhost:5000/orders", {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, name }),
       headers: {
         "Content-type": "application/json",
       },
@@ -60,12 +63,12 @@ const Purchase = () => {
       });
   };
 
-  const [orders, setOrders] = useState({});
+  /* const [orders, setOrders] = useState({});
   useEffect(() => {
     fetch("http://localhost:5000/orders")
       .then((res) => res.json())
       .then((data) => console.log(data));
-  }, [load]);
+  }, [load]); */
 
   return (
     <>
@@ -100,7 +103,7 @@ const Purchase = () => {
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="userName"
                   value={user?.displayName}
                   disabled
                   className="input input-bordered w-full max-w-md uppercase"
@@ -192,7 +195,7 @@ const Purchase = () => {
                   <span className="label-text">Address</span>
                 </label>
                 <textarea
-                  type="address"
+                  type="text"
                   placeholder=""
                   className="textarea textarea-bordered w-full max-w-md"
                   {...register("address", {

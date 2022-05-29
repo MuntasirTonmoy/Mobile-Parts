@@ -123,7 +123,7 @@ const Navbar = () => {
                     </span>
                   </li>
                   <li>
-                    <CustomLink to={`/myOrders/${user.email}`}>
+                    <CustomLink to={`/dashboard/myOrders/${user.email}`}>
                       My Orders
                     </CustomLink>
                   </li>
