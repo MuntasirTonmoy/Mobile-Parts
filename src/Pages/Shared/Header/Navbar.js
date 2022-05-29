@@ -122,6 +122,11 @@ const Navbar = () => {
                       Log out
                     </span>
                   </li>
+                  <li>
+                    <CustomLink to={`/myOrders/${user.email}`}>
+                      My Orders
+                    </CustomLink>
+                  </li>
                   <hr />
                 </ul>
               </div>

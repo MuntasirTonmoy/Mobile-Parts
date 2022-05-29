@@ -4,9 +4,24 @@ import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import { BsCheck2Circle } from "react-icons/bs";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const Purchase = () => {
+  const [load, setLoad] = useState(true);
   const [user] = useAuthState(auth);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      name: user?.displayName,
+      email: user?.email,
+    },
+  });
+
   const { id } = useParams();
   const [selectedPart, setSelectedPart] = useState({});
   useEffect(() => {
@@ -25,38 +40,49 @@ const Purchase = () => {
     availableQuantity,
   } = selectedPart;
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    defaultValues: {
-      name: user?.displayName,
-      email: user?.email,
-    },
-  });
-
   const onSubmit = (data) => {
-    console.log(data);
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          toast.success("Order Placed Successfully", {
+            toastId: "success1",
+          });
+          reset();
+          setLoad(!load);
+        }
+      });
   };
+
+  const [orders, setOrders] = useState({});
+  useEffect(() => {
+    fetch("http://localhost:5000/orders")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, [load]);
 
   return (
     <>
-      <div class="card lg:card-side lg:mx-10 mx-6 lg:mt-14 mt-10 mb-10 bg-base-100 border rounded-3xl">
-        <div class="card-body">
+      <div className="card lg:card-side lg:mx-10 mx-6 lg:mt-14 mt-10 mb-10 bg-base-100 border rounded-3xl">
+        <div className="card-body">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
             <div className="text-lg  mx-auto">
               <figure>
                 <img src={picture} alt={name} className="h-[300px] w-[300px]" />
               </figure>
-              <h2 class="font-bold text-3xl mt-4 mb-3 text-primary font-serif">
+              <h2 className="font-bold text-3xl mt-4 mb-3 text-primary font-serif">
                 {name}
               </h2>
               <span className="mb-3">ID: {_id}</span>
               <p className="mt-3">{description}</p>
               <p className="text-lg mt-2 font-bold text-green-600">
-                Price: ${price}/<small>piece</small>
+                Price: ${price}/<small>unit</small>
               </p>
               <p className="mt-3">Minimun Order quantity: {minQuantity}</p>
               <p className="mt-3">Available Quantity: {availableQuantity}</p>
@@ -69,7 +95,7 @@ const Purchase = () => {
                 Order Form
               </h1>
               <form onSubmit={handleSubmit(onSubmit)} action="">
-                <label className="label">
+                <label className="label mt-2">
                   <span className="label-text">Name</span>
                 </label>
                 <input
@@ -79,38 +105,40 @@ const Purchase = () => {
                   disabled
                   className="input input-bordered w-full max-w-md uppercase"
                 />
-                <label class="label">
-                  <span class="label-text">Email</span>
+                <label className="label mt-2">
+                  <span className="label-text">Email</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Type here"
                   value={user?.email}
                   disabled
-                  class="input input-bordered w-full max-w-md"
+                  className="input input-bordered w-full max-w-md"
                 />
-                <label className="label">
+                <label className="label mt-2">
                   <span className="label-text">Quantity</span>
                 </label>
-                <input
-                  type="number"
-                  defaultValue={minQuantity}
-                  className="input input-bordered w-full max-w-md"
-                  {...register("quantity", {
-                    required: {
-                      value: true,
-                      message: "Quantity is required.",
-                    },
-                    min: {
-                      value: `${minQuantity}`,
-                      message: `Quantity can't be less than ${minQuantity}`,
-                    },
-                    max: {
-                      value: `${availableQuantity}`,
-                      message: `Quantity can't be greater than ${availableQuantity}`,
-                    },
-                  })}
-                />
+                {minQuantity && (
+                  <input
+                    type="number"
+                    defaultValue={minQuantity}
+                    className="input input-bordered w-full max-w-md"
+                    {...register("quantity", {
+                      required: {
+                        value: true,
+                        message: "Quantity is required.",
+                      },
+                      min: {
+                        value: `${minQuantity}`,
+                        message: `Quantity can't be less than ${minQuantity}`,
+                      },
+                      max: {
+                        value: `${availableQuantity}`,
+                        message: `Quantity can't be greater than ${availableQuantity}`,
+                      },
+                    })}
+                  />
+                )}
                 <label className="label">
                   {errors.quantity?.type === "required" && (
                     <span className="label-text-alt text-red-500">
@@ -182,13 +210,24 @@ const Purchase = () => {
                   )}
                 </label>
                 <div className="mt-3">
-                  <button
-                    type="submit"
-                    class="btn btn-primary mt-2 text-white w-full"
-                  >
-                    <BsCheck2Circle className="text-xl mr-2"></BsCheck2Circle>
-                    Confirm Order
-                  </button>
+                  {errors.quantity || errors.phone || errors.address ? (
+                    <button
+                      type="submit"
+                      disabled
+                      className="btn btn-primary mt-2 text-white w-full"
+                    >
+                      <BsCheck2Circle className="text-xl mr-2"></BsCheck2Circle>
+                      Confirm Order
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="btn btn-primary mt-2 text-white w-full"
+                    >
+                      <BsCheck2Circle className="text-xl mr-2"></BsCheck2Circle>
+                      Confirm Order
+                    </button>
+                  )}
                 </div>
               </form>
             </div>
