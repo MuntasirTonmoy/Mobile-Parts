@@ -45,7 +45,7 @@ const Navbar = () => {
                 <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
               </li>
               <li>
-                <CustomLink to="/dashboard">Dashboard</CustomLink>
+                <CustomLink to="/dashboard?show=true">Dashboard</CustomLink>
               </li>
             </ul>
           </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
               <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
             </li>
             <li>
-              <CustomLink to="/dashboard">
+              <CustomLink to="/dashboard?show=true">
                 Dashboard
                 <div className="badge badge-sm badge-secondary">new</div>
               </CustomLink>

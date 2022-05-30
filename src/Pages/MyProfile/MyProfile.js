@@ -5,8 +5,13 @@ import userPhoto from "../../../src/user.png";
 
 const MyProfile = () => {
   const [user] = useAuthState(auth);
+  const [show, setShow] = useState(false);
+  const onClick = () => {
+    setShow(!show);
+  };
   return (
     <div className="mt-10 lg:mx-auto mx-6">
+      {show && <div>update</div>}
       <h1 className="text-center text-5xl font-bold text-primary font-serif">
         My Profile
       </h1>
@@ -25,7 +30,9 @@ const MyProfile = () => {
           <p className="text-lg">Location: {}</p>
           <p className="text-lg">Phone: {}</p>
           <div class="card-actions justify-center mt-3">
-            <button class="btn btn-primary text-white">Update Profile</button>
+            <button onClick={onClick} class="btn btn-primary text-white">
+              Update Profile
+            </button>
           </div>
         </div>
       </div>
