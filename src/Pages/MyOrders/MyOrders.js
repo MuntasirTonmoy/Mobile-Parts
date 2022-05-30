@@ -7,7 +7,12 @@ const MyOrders = () => {
   const email = user.email;
   const [myOrders, setMyOrders] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${email}`)
+    fetch(`https://young-cove-10389.herokuapp.com/myOrders/${email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [email]);
@@ -17,7 +22,7 @@ const MyOrders = () => {
       "Are you sure you want to delete this item?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/myOrders/${id}`, {
+      fetch(`https://young-cove-10389.herokuapp.com/myOrders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

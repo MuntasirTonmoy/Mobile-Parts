@@ -12,7 +12,7 @@ const Purchase = () => {
 
   const [selectedPart, setSelectedPart] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
+    fetch(`https://young-cove-10389.herokuapp.com/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setSelectedPart(data));
   }, [id]);
@@ -42,11 +42,11 @@ const Purchase = () => {
   });
 
   const onSubmit = (data) => {
-    const { name } = selectedPart;
+    const { name, picture, price, description } = selectedPart;
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://young-cove-10389.herokuapp.com/orders", {
       method: "POST",
-      body: JSON.stringify({ ...data, name }),
+      body: JSON.stringify({ ...data, name, picture, price, description }),
       headers: {
         "Content-type": "application/json",
       },
@@ -62,9 +62,9 @@ const Purchase = () => {
         }
       });
 
-    fetch("http://localhost:5000/myOrders", {
+    fetch("https://young-cove-10389.herokuapp.com/myOrders", {
       method: "POST",
-      body: JSON.stringify({ ...data, name }),
+      body: JSON.stringify({ ...data, name, picture, price, description }),
       headers: {
         "Content-type": "application/json",
       },
@@ -75,7 +75,7 @@ const Purchase = () => {
 
   /* const [orders, setOrders] = useState({});
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://young-cove-10389.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => console.log(data));
   }, [load]); */

@@ -23,7 +23,7 @@ const AddReview = () => {
     const numberRatings = parseInt(data?.ratings);
     data.ratings = numberRatings;
     console.log(data);
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://young-cove-10389.herokuapp.com/reviews", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

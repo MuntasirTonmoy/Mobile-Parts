@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useTransition } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import CustomLink from "../Utilities/CustomLink";
 import { useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -41,11 +42,13 @@ const Login = () => {
     reset();
   };
 
+  const [token] = useToken(user || gUser);
+
   useEffect(() => {
-    if (user || gUser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser]);
+  }, [token]);
 
   // conditions
   if (gLoading || loading) {

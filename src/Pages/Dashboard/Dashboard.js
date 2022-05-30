@@ -23,7 +23,7 @@ const Dashboard = () => {
         <div className="drawer-content">
           {(show || navShow) && (
             <>
-              <div className="lg:flex items-center justify-center  lg:h-[calc(100vh-200px)]">
+              <div className="lg:flex items-center justify-center  lg:h-[calc(100vh-100px)]">
                 <div>
                   <h1 className="text-5xl font-serif text-center mb-3 mt-10 text-primary font-bold">
                     Dashboard
@@ -71,7 +71,7 @@ const Dashboard = () => {
 
           <Outlet></Outlet>
           <div
-            class="tooltip tooltip-primary tooltip-left fixed bottom-12 right-16"
+            className="tooltip tooltip-primary tooltip-left fixed bottom-12 right-16"
             data-tip="Dashboard Menu"
           >
             <label

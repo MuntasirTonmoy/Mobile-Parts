@@ -44,9 +44,11 @@ const Navbar = () => {
               <li>
                 <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
               </li>
-              <li>
-                <CustomLink to="/dashboard?show=true">Dashboard</CustomLink>
-              </li>
+              {user && (
+                <li>
+                  <CustomLink to="/dashboard?show=true">Dashboard</CustomLink>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -61,12 +63,14 @@ const Navbar = () => {
             <li>
               <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
             </li>
-            <li>
-              <CustomLink to="/dashboard?show=true">
-                Dashboard
-                <div className="badge badge-sm badge-secondary">new</div>
-              </CustomLink>
-            </li>
+            {user && (
+              <li>
+                <CustomLink to="/dashboard?show=true">
+                  Dashboard
+                  <div className="badge badge-sm badge-secondary">new</div>
+                </CustomLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-center  lg:hidden">
@@ -137,7 +141,10 @@ const Navbar = () => {
                   <hr />
                   <li className="mt-2">
                     <span
-                      onClick={() => signOut(auth)}
+                      onClick={() => {
+                        signOut(auth);
+                        localStorage.removeItem("accessToken");
+                      }}
                       className="pr-5 flex items-center gap-2 uppercase font-bold btn btn-outline btn-primary"
                     >
                       <FiPower className="text-2xl"></FiPower>
@@ -180,7 +187,10 @@ const Navbar = () => {
                     <hr />
                     <li className="mt-2">
                       <span
-                        onClick={() => signOut(auth)}
+                        onClick={() => {
+                          signOut(auth);
+                          localStorage.removeItem("accessToken");
+                        }}
                         className="pr-5 flex items-center gap-2 uppercase font-bold btn btn-outline btn-primary"
                       >
                         <FiPower className="text-2xl"></FiPower>

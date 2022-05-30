@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -12,8 +12,13 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import CustomLink from "../Utilities/CustomLink";
+import useToken from "../../hooks/useToken";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
@@ -39,6 +44,14 @@ const SignUp = () => {
     await updateProfile({ displayName: name });
     reset();
   };
+
+  const [token] = useToken(user || gUser);
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token]);
 
   if (gLoading || loading || updating) {
     return <Loading></Loading>;
