@@ -11,7 +11,7 @@ const MyProfile = () => {
         My Profile
       </h1>
       <div class="card mx-auto lg:max-w-lg mt-2 bg-base-100 shadow-xl">
-        <div class="card-body text-center">
+        <div class="card-body  text-center">
           <img
             src={user?.photoURL || userPhoto}
             alt=""
@@ -20,9 +20,12 @@ const MyProfile = () => {
           <h2 class="card-title uppercase mx-auto mt-3">
             {user?.displayName || "New User"}
           </h2>
-          <p className="text-lg">{user?.email}</p>
+          <p className="text-lg ">{user?.email}</p>
+          <p className="text-lg">Education: {}</p>
+          <p className="text-lg">Location: {}</p>
+          <p className="text-lg">Phone: {}</p>
           <div class="card-actions justify-center mt-3">
-            <button class="btn btn-primary text-white">Edit Profile</button>
+            <button class="btn btn-primary text-white">Update Profile</button>
           </div>
         </div>
       </div>

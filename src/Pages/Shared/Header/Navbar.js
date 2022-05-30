@@ -43,6 +43,9 @@ const Navbar = () => {
               <li>
                 <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
               </li>
+              <li>
+                <CustomLink to="/dashboard">Dashboard</CustomLink>
+              </li>
             </ul>
           </div>
 
@@ -56,6 +59,12 @@ const Navbar = () => {
             </li>
             <li>
               <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
+            </li>
+            <li>
+              <CustomLink to="/dashboard">
+                Dashboard
+                <div className="badge badge-sm badge-secondary">new</div>
+              </CustomLink>
             </li>
           </ul>
         </div>
@@ -114,20 +123,26 @@ const Navbar = () => {
                   className="mt-14 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 font-bold uppercase"
                 >
                   <li>
+                    <CustomLink to={`/dashboard/myProfile`}>
+                      <span className="uppercase pr-4 py-1"> My Profile</span>
+                    </CustomLink>
+                  </li>
+                  <hr />
+                  <li>
+                    <CustomLink to={`/dashboard/myOrders/${user.email}`}>
+                      <span className="uppercase pr-4 py-1"> My Orders</span>
+                    </CustomLink>
+                  </li>
+                  <hr />
+                  <li className="mt-2">
                     <span
                       onClick={() => signOut(auth)}
-                      className="pr-5 flex items-center gap-2 uppercase font-bold"
+                      className="pr-5 flex items-center gap-2 uppercase font-bold btn btn-outline btn-primary"
                     >
                       <FiPower className="text-2xl"></FiPower>
                       Log out
                     </span>
                   </li>
-                  <li>
-                    <CustomLink to={`/dashboard/myOrders/${user.email}`}>
-                      My Orders
-                    </CustomLink>
-                  </li>
-                  <hr />
                 </ul>
               </div>
             </>
@@ -137,14 +152,6 @@ const Navbar = () => {
           {user ? (
             <>
               <div className=" items-center gap-5 hidden lg:flex">
-                <span
-                  onClick={() => signOut(auth)}
-                  className=" btn pr-5 btn-primary btn-outline rounded flex items-center justify-center gap-2 uppercase font-bold"
-                >
-                  <FiPower className="text-2xl"></FiPower>
-                  Log out
-                </span>
-
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex="0"
@@ -162,12 +169,26 @@ const Navbar = () => {
                     className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 font-bold uppercase"
                   >
                     <li>
-                      <a className="justify-between">
-                        Profile
-                        <span className="badge">New</span>
-                      </a>
+                      <CustomLink to={`/dashboard/myProfile`}>
+                        <span className="uppercase pr-4 py-1"> My Profile</span>
+                      </CustomLink>
                     </li>
                     <hr />
+                    <li>
+                      <CustomLink to={`/dashboard/myOrders/${user.email}`}>
+                        <span className="uppercase pr-4 py-1"> My Orders</span>
+                      </CustomLink>
+                    </li>
+                    <hr />
+                    <li className="mt-2">
+                      <span
+                        onClick={() => signOut(auth)}
+                        className="pr-5 flex items-center gap-2 uppercase font-bold btn btn-outline btn-primary"
+                      >
+                        <FiPower className="text-2xl"></FiPower>
+                        Log out
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
