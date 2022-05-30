@@ -222,7 +222,7 @@ const Purchase = () => {
                     </span>
                   )}
                 </label>
-                <div className="mt-3">
+                <div>
                   {errors.quantity || errors.phone || errors.address ? (
                     <button
                       type="submit"

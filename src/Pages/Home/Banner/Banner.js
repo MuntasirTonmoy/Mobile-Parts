@@ -18,10 +18,9 @@ const Banner = () => {
             <h1 className="mb-4 text-5xl font-bold text-white font-serif font-semibold ">
               Mobile Parts provider
             </h1>
-            <p className="mb-5 text-slate-100 max-w-lg mx-auto">
+            <p className="mb-5 text-slate-100 max-w-lg mx-auto text-lg ">
               Welcome to MOBILE PARTS. Mobile parts is the largest cellphone
               parts provider. We ensure best quality products around the world.{" "}
-              <br className="lg:block hidden" />
               Buy from us for the best experience.
             </p>
             <Link to="summary" smooth={true} offset={0} duration={500}>

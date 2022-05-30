@@ -1,23 +1,31 @@
 import React from "react";
 import Ratings from "../../../Utilities/Ratings";
+import userPicture from "../../../../user.png";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../../firebase.init";
 
 const Review = ({ review }) => {
-  const { name, picture, comment, ratings } = review;
+  const [user] = useAuthState(auth);
+  const { userName, picture, comment, ratings } = review;
 
   return (
     <>
       <div>
         <div className="card my-8 lg:mx-10 mx-6  max-w-md bg-base-100 shadow-xl">
           <figure>
-            <img src={picture} alt="user" className="rounded-full" />
+            <img
+              src={picture || user?.photoURL || userPicture}
+              alt="user"
+              className="rounded-full h-20 w-20"
+            />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">{name}</h2>
+            <h2 className="card-title">{userName}</h2>
             <p className="text-xl flex items-center gap-1">
               <Ratings>{ratings}</Ratings>
             </p>
             <p>
-              {comment.length > 80 ? `${comment.slice(0, 80)}...` : comment}
+              {comment.length > 40 ? `${comment.slice(0, 40)}...` : comment}
             </p>
           </div>
         </div>

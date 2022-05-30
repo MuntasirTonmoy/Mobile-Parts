@@ -13,21 +13,26 @@ const MyOrders = () => {
   }, [email]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/myOrders/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const rest = myOrders.filter((order) => order._id !== id);
-          setMyOrders(rest);
-        }
-      });
+    const proceed = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/myOrders/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const rest = myOrders.filter((order) => order._id !== id);
+            setMyOrders(rest);
+          }
+        });
+    }
   };
 
   return (
-    <div className="lg:mx-10 mx-6">
-      <h1 className="text-5xl text-primary text-center font-bold font-serif  mt-10 mb-10">
+    <div className="lg:mx-10 mx-6 mt-10 mb-10">
+      <h1 className="text-5xl text-primary text-center font-bold font-serif  mb-10">
         My Orders
       </h1>
       <div className="overflow-x-auto">
