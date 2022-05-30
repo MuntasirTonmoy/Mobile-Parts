@@ -7,6 +7,7 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { FiPower } from "react-icons/fi";
 import { signOut } from "firebase/auth";
 import CustomLink from "../../Utilities/CustomLink";
+import userPhoto from "../../../user.png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -110,12 +111,12 @@ const Navbar = () => {
           ) : (
             <>
               <div className="dropdown dropdown-end lg:hidden flex">
-                <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+                <label
+                  tabIndex="0"
+                  className="btn btn-ghost btn-circle avatar mr-2"
+                >
                   <div className="w-10 rounded-full">
-                    <img
-                      src="https://api.lorem.space/image/face?hash=33791"
-                      alt=""
-                    />
+                    <img src={user?.photoURL || userPhoto} alt="" />
                   </div>
                 </label>
                 <ul
@@ -155,13 +156,10 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex="0"
-                    className="btn btn-ghost btn-circle avatar"
+                    className="btn btn-ghost btn-circle avatar mr-2"
                   >
-                    <div className="w-10 rounded-full">
-                      <img
-                        src="https://api.lorem.space/image/face?hash=33791"
-                        alt=""
-                      />
+                    <div className=" w-10 rounded-full">
+                      <img src={user?.photoURL || userPhoto} alt="" />
                     </div>
                   </label>
                   <ul
