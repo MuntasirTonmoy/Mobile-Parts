@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Outlet, useSearchParams } from "react-router-dom";
+import React from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import CustomLink from "../Utilities/CustomLink";
 import { AiOutlinePlus, AiFillShopping } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
@@ -9,19 +9,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
 const Dashboard = () => {
-  const [searchParams] = useSearchParams();
-  const navShow = searchParams.get("show");
+  const location = useLocation();
   const [user] = useAuthState(auth);
-  const [show, setShow] = useState(true);
-  const onClick = () => {
-    setShow(false);
-  };
   return (
     <>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          {(show || navShow) && (
+          {location.pathname === "/dashboard" && (
             <>
               <div className="lg:flex items-center justify-center  lg:h-[calc(100vh-100px)]">
                 <div>
@@ -31,10 +26,7 @@ const Dashboard = () => {
 
                   <div className="mt-10 text-3xl lg:mx-10 mx-6  mb-10 grid lg:grid-cols-3 grid-cols-1 lg:gap-10 text-center">
                     <CustomLink to="/dashboard/myProfile">
-                      <div
-                        onClick={onClick}
-                        className="p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase"
-                      >
+                      <div className="p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
                         <div>
                           <FaUserCircle className="text-primary text-7xl mx-auto mb-4"></FaUserCircle>
                         </div>
@@ -42,10 +34,7 @@ const Dashboard = () => {
                       </div>
                     </CustomLink>
                     <CustomLink to={`/dashboard/myOrders/${user?.email}`}>
-                      <div
-                        onClick={onClick}
-                        className="lg:mt-0 mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase"
-                      >
+                      <div className="lg:mt-0 mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
                         <div>
                           <AiFillShopping className="text-primary text-7xl mx-auto mb-4"></AiFillShopping>
                         </div>
@@ -53,10 +42,7 @@ const Dashboard = () => {
                       </div>
                     </CustomLink>
                     <CustomLink to="/dashboard/addReview">
-                      <div
-                        onClick={onClick}
-                        className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase"
-                      >
+                      <div className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
                         <div>
                           <MdReviews className="text-primary text-7xl mx-auto mb-4"></MdReviews>
                         </div>
@@ -84,32 +70,35 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4  w-80 bg-base-100 text-base-content font-serif">
-            <li
-              onClick={() => setShow(true)}
-              className="py-2 text-lg font-bold"
-            >
-              <CustomLink to="/dashboard/">
+          <ul className="menu p-4  lg:w-80 w-60 bg-base-100 text-base-content font-serif">
+            <li className="py-2 text-lg font-bold">
+              <CustomLink to="/dashboard">
                 <MdDashboardCustomize className="text-2xl"></MdDashboardCustomize>
                 Dashboard
               </CustomLink>
             </li>
             <hr />
-            <li onClick={onClick} className="py-2 text-lg font-bold">
+            <li className="py-2 text-lg font-bold">
               <CustomLink to="/dashboard/myProfile">
                 <FaUserCircle className="text-2xl"></FaUserCircle>My Profile
               </CustomLink>
             </li>
             <hr />
-            <li onClick={onClick} className="py-2 text-lg font-bold">
+            <li className="py-2 text-lg font-bold">
               <CustomLink to={`/dashboard/myOrders/${user?.email}`}>
                 <AiFillShopping className="text-2xl"></AiFillShopping>My Orders
               </CustomLink>
             </li>
             <hr />
-            <li onClick={onClick} className="py-2 text-lg font-bold">
+            <li className="py-2 text-lg font-bold">
               <CustomLink to="/dashboard/addReview">
                 <MdReviews className="text-2xl "></MdReviews>Add Review
+              </CustomLink>
+            </li>
+            <hr />
+            <li className="py-2 text-lg font-bold">
+              <CustomLink to="/dashboard/allUsers">
+                <MdReviews className="text-2xl "></MdReviews>All Users
               </CustomLink>
             </li>
             <hr />

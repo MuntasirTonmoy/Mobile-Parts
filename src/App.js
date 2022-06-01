@@ -21,6 +21,8 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddReview from "./Pages/AddReview/AddReview";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import ScrollToTop from "./Pages/Utilities/ScrollToTop";
+import UpdateProfile from "./Pages/MyProfile/UpdateProfile/UpdateProfile";
+import AllUsers from "./Pages/AllUsers/AllUsers";
 
 function App() {
   return (
@@ -46,15 +48,16 @@ function App() {
               </RequireAuth>
             }
           >
+            <Route path="allUsers" element={<AllUsers></AllUsers>}></Route>
             <Route path="addReview" element={<AddReview></AddReview>}></Route>
             <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
             <Route
+              path="updateProfile"
+              element={<UpdateProfile></UpdateProfile>}
+            ></Route>
+            <Route
               path="myOrders/:email"
-              element={
-                <RequireAuth>
-                  <MyOrders></MyOrders>
-                </RequireAuth>
-              }
+              element={<MyOrders></MyOrders>}
             ></Route>
           </Route>
 

@@ -3,10 +3,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
-import Ratings from "../Utilities/Ratings";
-
 const AddReview = () => {
   const [user] = useAuthState(auth);
+  const userPhoto = "https://i.ibb.co/jGwMrsv/user.jpg";
   const {
     register,
     handleSubmit,
@@ -16,10 +15,12 @@ const AddReview = () => {
     mode: "onChange",
     defaultValues: {
       userName: user?.displayName,
+      picture: user?.photoURL || userPhoto,
     },
   });
 
   const onSubmit = (data) => {
+    console.log(data);
     const numberRatings = parseInt(data?.ratings);
     data.ratings = numberRatings;
     console.log(data);
@@ -44,7 +45,7 @@ const AddReview = () => {
   return (
     <div className="mt-10 mb-10 lg:mx-10 mx-6">
       <h1 className="font-serif text-center text-5xl font-bold text-primary">
-        Add a review
+        Add Review
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-2">
         <div className="form-control mx-auto   lg:max-w-md max-w-xs shadow-xl p-10 rounded-2xl">

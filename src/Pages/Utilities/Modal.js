@@ -1,7 +1,7 @@
 import React from "react";
 import { RiErrorWarningFill } from "react-icons/ri";
 
-const Modal = ({ confirm, setConfirm }) => {
+const Modal = ({ setConfirm }) => {
   return (
     <>
       <input type="checkbox" id="cancel-order" className="modal-toggle" />
@@ -15,7 +15,7 @@ const Modal = ({ confirm, setConfirm }) => {
           </p>
           <div className="modal-action justify-center gap-4">
             <label
-              onClick={() => setConfirm(!confirm)}
+              onClick={() => setConfirm(true)}
               htmlFor="cancel-order"
               className="btn btn-error"
             >

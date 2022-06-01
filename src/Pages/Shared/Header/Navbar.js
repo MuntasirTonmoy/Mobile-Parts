@@ -46,7 +46,7 @@ const Navbar = () => {
               </li>
               {user && (
                 <li>
-                  <CustomLink to="/dashboard?show=true">Dashboard</CustomLink>
+                  <CustomLink to="/dashboard">Dashboard</CustomLink>
                 </li>
               )}
             </ul>
@@ -65,9 +65,13 @@ const Navbar = () => {
             </li>
             {user && (
               <li>
-                <CustomLink to="/dashboard?show=true">
-                  Dashboard
-                  <div className="badge badge-sm badge-secondary">new</div>
+                <CustomLink to="/dashboard">
+                  <div className="indicator">
+                    Dashboard
+                    <span className="badge badge-sm badge-accent text-white">
+                      new
+                    </span>
+                  </div>
                 </CustomLink>
               </li>
             )}
@@ -119,8 +123,12 @@ const Navbar = () => {
                   tabIndex="0"
                   className="btn btn-ghost btn-circle avatar mr-2"
                 >
-                  <div className="w-10 rounded-full">
-                    <img src={user?.photoURL || userPhoto} alt="" />
+                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img
+                      src={user?.photoURL || userPhoto}
+                      alt=""
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                 </label>
                 <ul
@@ -165,8 +173,12 @@ const Navbar = () => {
                     tabIndex="0"
                     className="btn btn-ghost btn-circle avatar mr-2"
                   >
-                    <div className=" w-10 rounded-full">
-                      <img src={user?.photoURL || userPhoto} alt="" />
+                    <div className=" w-10 rounded-full ring ring-gray-300 ring-offset-secondary ring-offset-2">
+                      <img
+                        src={user?.photoURL || userPhoto}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                      />
                     </div>
                   </label>
                   <ul
