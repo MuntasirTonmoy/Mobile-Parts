@@ -2,10 +2,14 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import CustomLink from "../Utilities/CustomLink";
 import { AiOutlinePlus, AiFillShopping } from "react-icons/ai";
-import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import { FaUserCircle, FaShoppingCart, FaUserEdit } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
-import { MdDashboardCustomize } from "react-icons/md";
-import { MdReviews } from "react-icons/md";
+import {
+  MdDashboardCustomize,
+  MdAddCircle,
+  MdReviews,
+  MdSettingsSuggest,
+} from "react-icons/md";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useAdmin from "../../hooks/useAdmin";
@@ -14,6 +18,7 @@ const Dashboard = () => {
   const location = useLocation();
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
+
   return (
     <>
       <div className="drawer">
@@ -61,9 +66,9 @@ const Dashboard = () => {
                         <CustomLink to={`/dashboard/allUsers`}>
                           <div className="lg:mt-0 mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
                             <div>
-                              <BsPeopleFill className="text-primary text-7xl mx-auto mb-4"></BsPeopleFill>
+                              <FaUserEdit className="text-primary text-7xl mx-auto mb-4"></FaUserEdit>
                             </div>
-                            All Users
+                            Make Admin
                           </div>
                         </CustomLink>
                         <CustomLink to="/dashboard/allOrders">
@@ -77,6 +82,26 @@ const Dashboard = () => {
                       </>
                     )}
                   </div>
+                  {admin && (
+                    <div className=" text-3xl lg:mx-10 mx-6  mb-10 grid lg:grid-cols-2 grid-cols-1 lg:gap-10 text-center">
+                      <CustomLink to="/dashboard/allOrders">
+                        <div className="lg:mt-0 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
+                          <div>
+                            <MdAddCircle className="text-primary text-7xl mx-auto mb-4"></MdAddCircle>
+                          </div>
+                          Add product
+                        </div>
+                      </CustomLink>
+                      <CustomLink to="/dashboard/allOrders">
+                        <div className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
+                          <div>
+                            <MdSettingsSuggest className="text-primary text-7xl mx-auto mb-4"></MdSettingsSuggest>
+                          </div>
+                          Manage Products
+                        </div>
+                      </CustomLink>
+                    </div>
+                  )}
                 </div>
               </div>
             </>
@@ -139,7 +164,7 @@ const Dashboard = () => {
                 <hr />
                 <li className="py-2 text-lg font-bold">
                   <CustomLink to="/dashboard/allOrders">
-                    <FaShoppingCart className="text-2xl "></FaShoppingCart>
+                    <MdSettingsSuggest className="text-2xl "></MdSettingsSuggest>
                     Manage Orders
                   </CustomLink>
                 </li>

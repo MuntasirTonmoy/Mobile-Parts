@@ -20,10 +20,8 @@ const AddReview = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     const numberRatings = parseInt(data?.ratings);
     data.ratings = numberRatings;
-    console.log(data);
     fetch("https://young-cove-10389.herokuapp.com/reviews", {
       method: "POST",
       body: JSON.stringify(data),
@@ -34,7 +32,6 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          console.log(data);
           toast.success("Review Added", {
             toastId: "success1",
           });
