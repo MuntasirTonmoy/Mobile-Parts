@@ -2,15 +2,18 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import CustomLink from "../Utilities/CustomLink";
 import { AiOutlinePlus, AiFillShopping } from "react-icons/ai";
-import { FaUserCircle } from "react-icons/fa";
+import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import { BsPeopleFill } from "react-icons/bs";
 import { MdDashboardCustomize } from "react-icons/md";
 import { MdReviews } from "react-icons/md";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
   const location = useLocation();
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <>
       <div className="drawer">
@@ -33,22 +36,46 @@ const Dashboard = () => {
                         My Profile
                       </div>
                     </CustomLink>
-                    <CustomLink to={`/dashboard/myOrders/${user?.email}`}>
-                      <div className="lg:mt-0 mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
-                        <div>
-                          <AiFillShopping className="text-primary text-7xl mx-auto mb-4"></AiFillShopping>
-                        </div>
-                        My Order
-                      </div>
-                    </CustomLink>
-                    <CustomLink to="/dashboard/addReview">
-                      <div className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
-                        <div>
-                          <MdReviews className="text-primary text-7xl mx-auto mb-4"></MdReviews>
-                        </div>
-                        Add Review
-                      </div>
-                    </CustomLink>
+                    {!admin && (
+                      <>
+                        <CustomLink to={`/dashboard/myOrders/${user?.email}`}>
+                          <div className="lg:mt-0 mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
+                            <div>
+                              <AiFillShopping className="text-primary text-7xl mx-auto mb-4"></AiFillShopping>
+                            </div>
+                            My Order
+                          </div>
+                        </CustomLink>
+                        <CustomLink to="/dashboard/addReview">
+                          <div className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
+                            <div>
+                              <MdReviews className="text-primary text-7xl mx-auto mb-4"></MdReviews>
+                            </div>
+                            Add Review
+                          </div>
+                        </CustomLink>
+                      </>
+                    )}
+                    {admin && (
+                      <>
+                        <CustomLink to={`/dashboard/allUsers`}>
+                          <div className="lg:mt-0 mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
+                            <div>
+                              <BsPeopleFill className="text-primary text-7xl mx-auto mb-4"></BsPeopleFill>
+                            </div>
+                            All Users
+                          </div>
+                        </CustomLink>
+                        <CustomLink to="/dashboard/allOrders">
+                          <div className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
+                            <div>
+                              <FaShoppingCart className="text-primary text-7xl mx-auto mb-4"></FaShoppingCart>
+                            </div>
+                            All Orders
+                          </div>
+                        </CustomLink>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -84,24 +111,41 @@ const Dashboard = () => {
               </CustomLink>
             </li>
             <hr />
-            <li className="py-2 text-lg font-bold">
-              <CustomLink to={`/dashboard/myOrders/${user?.email}`}>
-                <AiFillShopping className="text-2xl"></AiFillShopping>My Orders
-              </CustomLink>
-            </li>
-            <hr />
-            <li className="py-2 text-lg font-bold">
-              <CustomLink to="/dashboard/addReview">
-                <MdReviews className="text-2xl "></MdReviews>Add Review
-              </CustomLink>
-            </li>
-            <hr />
-            <li className="py-2 text-lg font-bold">
-              <CustomLink to="/dashboard/allUsers">
-                <MdReviews className="text-2xl "></MdReviews>All Users
-              </CustomLink>
-            </li>
-            <hr />
+            {!admin && (
+              <>
+                <li className="py-2 text-lg font-bold">
+                  <CustomLink to={`/dashboard/myOrders/${user?.email}`}>
+                    <AiFillShopping className="text-2xl"></AiFillShopping>My
+                    Orders
+                  </CustomLink>
+                </li>
+                <hr />
+                <li className="py-2 text-lg font-bold">
+                  <CustomLink to="/dashboard/addReview">
+                    <MdReviews className="text-2xl "></MdReviews>Add Review
+                  </CustomLink>
+                </li>
+                <hr />
+              </>
+            )}
+
+            {admin && (
+              <>
+                <li className="py-2 text-lg font-bold">
+                  <CustomLink to="/dashboard/allUsers">
+                    <BsPeopleFill className="text-2xl "></BsPeopleFill>All Users
+                  </CustomLink>
+                </li>
+                <hr />
+                <li className="py-2 text-lg font-bold">
+                  <CustomLink to="/dashboard/allOrders">
+                    <FaShoppingCart className="text-2xl "></FaShoppingCart>
+                    Manage Orders
+                  </CustomLink>
+                </li>
+                <hr />
+              </>
+            )}
           </ul>
         </div>
       </div>

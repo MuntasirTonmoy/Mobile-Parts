@@ -57,9 +57,9 @@ const MyOrders = () => {
             </tr>
           </thead>
 
-          {myOrders.map((order) => (
+          {myOrders?.map((order) => (
             <tbody key={order._id}>
-              <tr className="hover border">
+              <tr className="border">
                 <td className="border">{order.name}</td>
                 <td className="border text-center">{order.quantity}</td>
                 <td className="border text-center">
@@ -70,7 +70,7 @@ const MyOrders = () => {
                 <td className="border text-center">
                   <label
                     onClick={() => setOrderId(order._id)}
-                    htmlFor="cancel-order"
+                    htmlFor="confirm-modal"
                     className="btn modal-button btn-sm btn-error"
                   >
                     Cancel

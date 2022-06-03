@@ -23,6 +23,8 @@ import MyProfile from "./Pages/MyProfile/MyProfile";
 import ScrollToTop from "./Pages/Utilities/ScrollToTop";
 import UpdateProfile from "./Pages/MyProfile/UpdateProfile/UpdateProfile";
 import AllUsers from "./Pages/AllUsers/AllUsers";
+import RequireAdmin from "./Pages/Utilities/RequireAdmin";
+import AllOrders from "./Pages/AllOrders/AllOrders";
 
 function App() {
   return (
@@ -48,7 +50,22 @@ function App() {
               </RequireAuth>
             }
           >
-            <Route path="allUsers" element={<AllUsers></AllUsers>}></Route>
+            <Route
+              path="allUsers"
+              element={
+                <RequireAdmin>
+                  <AllUsers></AllUsers>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="allOrders"
+              element={
+                <RequireAdmin>
+                  <AllOrders></AllOrders>
+                </RequireAdmin>
+              }
+            ></Route>
             <Route path="addReview" element={<AddReview></AddReview>}></Route>
             <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
             <Route

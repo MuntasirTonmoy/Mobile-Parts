@@ -44,7 +44,7 @@ const Purchase = () => {
   const onSubmit = (data) => {
     const { name, picture, price, description } = selectedPart;
 
-    fetch("https://young-cove-10389.herokuapp.com/orders", {
+    fetch("https://young-cove-10389.herokuapp.com/myOrders", {
       method: "POST",
       body: JSON.stringify({ ...data, name, picture, price, description }),
       headers: {
@@ -61,24 +61,7 @@ const Purchase = () => {
           setLoad(!load);
         }
       });
-
-    fetch("https://young-cove-10389.herokuapp.com/myOrders", {
-      method: "POST",
-      body: JSON.stringify({ ...data, name, picture, price, description }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {});
   };
-
-  /* const [orders, setOrders] = useState({});
-  useEffect(() => {
-    fetch("https://young-cove-10389.herokuapp.com/orders")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }, [load]); */
 
   return (
     <>

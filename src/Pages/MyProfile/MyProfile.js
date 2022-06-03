@@ -10,7 +10,7 @@ const MyProfile = () => {
   const [userInfo, setUserPrfl] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://young-cove-10389.herokuapp.com/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -20,9 +20,7 @@ const MyProfile = () => {
       .then((data) => {
         setUserPrfl(data);
       });
-  }, []);
-
-  const [userPrfl] = userInfo;
+  }, [email]);
 
   return (
     <div className="mt-10 lg:mx-auto mx-6">
@@ -48,20 +46,23 @@ const MyProfile = () => {
                 </li>
                 <li>
                   <span className="font-semibold">Education:</span>{" "}
-                  {userPrfl?.education}
+                  {userInfo[0]?.education}
                 </li>
                 <li>
                   <span className="font-semibold">Location:</span>{" "}
-                  {userPrfl?.location}
+                  {userInfo[0]?.location}
                 </li>
                 <li>
                   <span className="font-semibold">Phone: </span>
-                  {userPrfl?.phone}
+                  {userInfo[0]?.phone}
                 </li>
                 <li>
                   <span className="font-semibold">Links:</span>{" "}
-                  <a className="text-primary" href={`${userPrfl?.socialLinks}`}>
-                    {userPrfl?.socialLinks}
+                  <a
+                    className="text-primary"
+                    href={`${userInfo[0]?.socialLinks}`}
+                  >
+                    {userInfo[0]?.socialLinks}
                   </a>
                 </li>
               </ul>
