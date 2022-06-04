@@ -25,6 +25,8 @@ import UpdateProfile from "./Pages/MyProfile/UpdateProfile/UpdateProfile";
 import AllUsers from "./Pages/AllUsers/AllUsers";
 import RequireAdmin from "./Pages/Utilities/RequireAdmin";
 import AllOrders from "./Pages/AllOrders/AllOrders";
+import AddProduct from "./Pages/AddProduct/AddProduct";
+import AllProducts from "./Pages/AllProducts/AllProducts";
 
 function App() {
   return (
@@ -63,6 +65,22 @@ function App() {
               element={
                 <RequireAdmin>
                   <AllOrders></AllOrders>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="addProducts"
+              element={
+                <RequireAdmin>
+                  <AddProduct></AddProduct>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="allProducts"
+              element={
+                <RequireAdmin>
+                  <AllProducts></AllProducts>
                 </RequireAdmin>
               }
             ></Route>

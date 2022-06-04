@@ -84,7 +84,7 @@ const Dashboard = () => {
                   </div>
                   {admin && (
                     <div className=" text-3xl lg:mx-10 mx-6  mb-10 grid lg:grid-cols-2 grid-cols-1 lg:gap-10 text-center">
-                      <CustomLink to="/dashboard/allOrders">
+                      <CustomLink to="/dashboard/addProducts">
                         <div className="lg:mt-0 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
                           <div>
                             <MdAddCircle className="text-primary text-7xl mx-auto mb-4"></MdAddCircle>
@@ -92,7 +92,7 @@ const Dashboard = () => {
                           Add product
                         </div>
                       </CustomLink>
-                      <CustomLink to="/dashboard/allOrders">
+                      <CustomLink to="/dashboard/allProducts">
                         <div className="lg:mt-0  mt-10 p-10 w-sm shadow rounded-3xl hover:shadow-2xl transition-shadow ease-out duration-200 uppercase">
                           <div>
                             <MdSettingsSuggest className="text-primary text-7xl mx-auto mb-4"></MdSettingsSuggest>
