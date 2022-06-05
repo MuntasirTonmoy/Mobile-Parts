@@ -137,7 +137,7 @@ const Navbar = () => {
                 >
                   <li>
                     <CustomLink to={`/dashboard/myProfile`}>
-                      <span className="uppercase pr-4 py-1"> My Profile</span>
+                      <span className="uppercase pr-4 py-1"> Profile</span>
                     </CustomLink>
                   </li>
                   <hr />

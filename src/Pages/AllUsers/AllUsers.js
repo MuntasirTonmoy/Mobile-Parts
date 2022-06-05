@@ -13,7 +13,7 @@ const AllUsers = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/users`, {
+    fetch(`http://localhost:5000/users`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ const AllUsers = () => {
   }, [email, reload]);
 
   const handleAdmin = (email) => {
-    fetch(`https://young-cove-10389.herokuapp.com/user/admin/${email}`, {
+    fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -45,7 +45,7 @@ const AllUsers = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://young-cove-10389.herokuapp.com/users/${userId}`, {
+      fetch(`http://localhost:5000/users/${userId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

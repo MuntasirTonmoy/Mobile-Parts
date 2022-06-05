@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import CustomLink from "../Utilities/CustomLink";
 import Modal from "../Utilities/Modal";
 
 const MyOrders = () => {
+  const navigate = useNavigate();
   const [orderId, setOrderId] = useState("");
   const [confirm, setConfirm] = useState(false);
   const [user] = useAuthState(auth);
   const email = user.email;
   const [myOrders, setMyOrders] = useState([]);
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/myOrders/${email}`, {
+    fetch(`http://localhost:5000/myOrders/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -23,7 +26,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://young-cove-10389.herokuapp.com/myOrders/${orderId}`, {
+      fetch(`http://localhost:5000/myOrders/${orderId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -63,18 +66,35 @@ const MyOrders = () => {
                 <td className="border">{order.name}</td>
                 <td className="border text-center">{order.quantity}</td>
                 <td className="border text-center">
-                  <button className="btn btn-sm btn-success text-white">
-                    Pay Now
-                  </button>
+                  {order?.paid ? (
+                    <p className="text-lg text-green-500 ">Paid</p>
+                  ) : (
+                    <CustomLink to={`/dashboard/payment/${order._id}`}>
+                      <button className="btn btn-sm btn-success text-white">
+                        Pay Now
+                      </button>
+                    </CustomLink>
+                  )}
                 </td>
                 <td className="border text-center">
-                  <label
-                    onClick={() => setOrderId(order._id)}
-                    htmlFor="confirm-modal"
-                    className="btn modal-button btn-sm btn-error"
-                  >
-                    Cancel
-                  </label>
+                  {order?.paid ? (
+                    <label
+                      disabled
+                      onClick={() => setOrderId(order._id)}
+                      htmlFor="confirm-modal"
+                      className="btn modal-button btn-sm btn-error"
+                    >
+                      Cancel
+                    </label>
+                  ) : (
+                    <label
+                      onClick={() => setOrderId(order._id)}
+                      htmlFor="confirm-modal"
+                      className="btn modal-button btn-sm btn-error"
+                    >
+                      Cancel
+                    </label>
+                  )}
                 </td>
               </tr>
             </tbody>

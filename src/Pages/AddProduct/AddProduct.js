@@ -15,7 +15,7 @@ const AddProduct = () => {
   });
 
   const onSubmit = (data) => {
-    fetch(`https://young-cove-10389.herokuapp.com/parts`, {
+    fetch(`http://localhost:5000/parts`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

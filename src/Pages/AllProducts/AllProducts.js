@@ -8,7 +8,7 @@ const AllProducts = () => {
   const [AllProducts, setAllProducts] = useState([]);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/parts`, {
+    fetch(`http://localhost:5000/parts`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -20,7 +20,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://young-cove-10389.herokuapp.com/parts/${productId}`, {
+      fetch(`http://localhost:5000/parts/${productId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

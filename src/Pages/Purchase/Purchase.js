@@ -12,7 +12,7 @@ const Purchase = () => {
 
   const [selectedPart, setSelectedPart] = useState({});
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/purchase/${id}`)
+    fetch(`http://localhost:5000/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => setSelectedPart(data));
   }, [id]);
@@ -44,7 +44,7 @@ const Purchase = () => {
   const onSubmit = (data) => {
     const { name, picture, price, description } = selectedPart;
 
-    fetch("https://young-cove-10389.herokuapp.com/myOrders", {
+    fetch("http://localhost:5000/myOrders", {
       method: "POST",
       body: JSON.stringify({ ...data, name, picture, price, description }),
       headers: {

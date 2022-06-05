@@ -27,6 +27,7 @@ import RequireAdmin from "./Pages/Utilities/RequireAdmin";
 import AllOrders from "./Pages/AllOrders/AllOrders";
 import AddProduct from "./Pages/AddProduct/AddProduct";
 import AllProducts from "./Pages/AllProducts/AllProducts";
+import Payment from "./Pages/Payment/Payment";
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
               }
             ></Route>
             <Route path="addReview" element={<AddReview></AddReview>}></Route>
+            <Route path="payment/:id" element={<Payment></Payment>}></Route>
             <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
             <Route
               path="updateProfile"
