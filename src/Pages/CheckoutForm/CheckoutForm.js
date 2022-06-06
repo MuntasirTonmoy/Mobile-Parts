@@ -16,7 +16,7 @@ const CheckoutForm = ({ product }) => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     if (price) {
-      fetch("http://localhost:5000/create-payment-intent", {
+      fetch("https://young-cove-10389.herokuapp.com/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const CheckoutForm = ({ product }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5000/myOrders/${_id}`, {
+      fetch(`https://young-cove-10389.herokuapp.com/myOrders/${_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

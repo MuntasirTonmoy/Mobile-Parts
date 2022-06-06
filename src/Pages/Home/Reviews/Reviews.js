@@ -37,7 +37,7 @@ const Reviews = () => {
     ],
   };
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://young-cove-10389.herokuapp.com/reviews")
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, []);

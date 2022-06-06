@@ -4,7 +4,7 @@ const AllOrders = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/myOrders")
+    fetch("https://young-cove-10389.herokuapp.com/myOrders")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

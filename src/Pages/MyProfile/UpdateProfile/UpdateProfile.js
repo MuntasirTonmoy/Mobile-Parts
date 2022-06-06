@@ -23,7 +23,7 @@ const UpdateProfile = () => {
   });
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://young-cove-10389.herokuapp.com/user/${email}`, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {

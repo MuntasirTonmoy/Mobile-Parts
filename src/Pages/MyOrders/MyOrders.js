@@ -14,7 +14,7 @@ const MyOrders = () => {
   const email = user.email;
   const [myOrders, setMyOrders] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${email}`, {
+    fetch(`https://young-cove-10389.herokuapp.com/myOrders/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`http://localhost:5000/myOrders/${orderId}`, {
+      fetch(`https://young-cove-10389.herokuapp.com/myOrders/${orderId}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

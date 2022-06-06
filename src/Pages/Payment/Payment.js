@@ -14,7 +14,7 @@ const Payment = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/payment/${id}`, {
+    fetch(`https://young-cove-10389.herokuapp.com/myOrders/payment/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
