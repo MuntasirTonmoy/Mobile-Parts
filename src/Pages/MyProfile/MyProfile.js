@@ -10,14 +10,14 @@ const MyProfile = () => {
   const [userInfo, setUserPrfl] = useState([]);
 
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/user/${email}`, {
+    fetch(`https://tame-red-magpie-shoe.cyclic.app/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setUserPrfl(data);
       });
   }, [email]);
