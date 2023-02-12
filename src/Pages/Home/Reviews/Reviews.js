@@ -37,9 +37,9 @@ const Reviews = () => {
     ],
   };
   useEffect(() => {
-    fetch("https://young-cove-10389.herokuapp.com/reviews")
-      .then((response) => response.json())
-      .then((data) => setReviews(data));
+    fetch("https://tame-red-magpie-shoe.cyclic.app/reviews")
+      .then(response => response.json())
+      .then(data => setReviews(data));
   }, []);
   return (
     <>
