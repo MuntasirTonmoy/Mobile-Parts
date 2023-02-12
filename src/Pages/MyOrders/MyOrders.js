@@ -14,28 +14,28 @@ const MyOrders = () => {
   const email = user.email;
   const [myOrders, setMyOrders] = useState([]);
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/myOrders/${email}`, {
+    fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => setMyOrders(data));
+      .then(res => res.json())
+      .then(data => setMyOrders(data));
   }, [email]);
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://young-cove-10389.herokuapp.com/myOrders/${orderId}`, {
+      fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${orderId}`, {
         method: "DELETE",
       })
-        .then((res) => res.json())
-        .then((data) => {
+        .then(res => res.json())
+        .then(data => {
           if (data.deletedCount > 0) {
             toast.success("Order Cancelled", {
               toastId: "success1",
             });
-            const rest = myOrders.filter((order) => order._id !== orderId);
+            const rest = myOrders.filter(order => order._id !== orderId);
             setMyOrders(rest);
             setConfirm(false);
           }
@@ -60,7 +60,7 @@ const MyOrders = () => {
             </tr>
           </thead>
 
-          {myOrders?.map((order) => (
+          {myOrders?.map(order => (
             <tbody key={order._id}>
               <tr className="border">
                 <td className="border">{order.name}</td>
