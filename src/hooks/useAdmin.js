@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
-const useAdmin = (user) => {
+const useAdmin = user => {
   const email = user?.email;
   const [admin, setAdmin] = useState(false);
   const [adminLoading, setAdminLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/admin/${email}`, {
+    fetch(`https://tame-red-magpie-shoe.cyclic.app/admin/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setAdmin(data?.admin);
         setAdminLoading(false);
       });
