@@ -22,16 +22,16 @@ const UpdateProfile = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    fetch(`https://young-cove-10389.herokuapp.com/user/${email}`, {
+  const onSubmit = data => {
+    fetch(`https://tame-red-magpie-shoe.cyclic.app/user/${email}`, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
         "Content-type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data) {
           toast.success("Profile updated successfully.", {
             toastId: "success1",

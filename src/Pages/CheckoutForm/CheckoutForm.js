@@ -16,7 +16,7 @@ const CheckoutForm = ({ product }) => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     if (price) {
-      fetch("https://young-cove-10389.herokuapp.com/create-payment-intent", {
+      fetch("https://tame-red-magpie-shoe.cyclic.app/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,12 +24,12 @@ const CheckoutForm = ({ product }) => {
         },
         body: JSON.stringify({ price }),
       })
-        .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret));
+        .then(res => res.json())
+        .then(data => setClientSecret(data.clientSecret));
     }
   }, [price]);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     if (!stripe || !elements) {
@@ -79,7 +79,7 @@ const CheckoutForm = ({ product }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`https://young-cove-10389.herokuapp.com/myOrders/${_id}`, {
+      fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -87,8 +87,8 @@ const CheckoutForm = ({ product }) => {
         },
         body: JSON.stringify(payment),
       })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then(res => res.json())
+        .then(data => console.log(data));
     }
   };
 

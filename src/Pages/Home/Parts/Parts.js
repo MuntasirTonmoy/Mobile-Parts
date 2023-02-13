@@ -6,14 +6,14 @@ const Parts = () => {
   const [parts, setParts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://young-cove-10389.herokuapp.com/parts")
-      .then((response) => {
+    fetch("https://tame-red-magpie-shoe.cyclic.app/parts")
+      .then(response => {
         if (response.status === 404) {
           window.location.reload();
         }
         return response.json();
       })
-      .then((data) => {
+      .then(data => {
         setParts(data);
         setLoading(false);
       });
@@ -28,7 +28,7 @@ const Parts = () => {
           <Loading />
         ) : (
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-            {parts.map((part) => (
+            {parts.map(part => (
               <Part key={part._id} part={part}></Part>
             ))}
           </div>

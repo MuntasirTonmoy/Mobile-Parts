@@ -19,18 +19,18 @@ const AddReview = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     const numberRatings = parseInt(data?.ratings);
     data.ratings = numberRatings;
-    fetch("https://young-cove-10389.herokuapp.com/reviews", {
+    fetch("https://tame-red-magpie-shoe.cyclic.app/reviews", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data) {
           toast.success("Review Added", {
             toastId: "success1",

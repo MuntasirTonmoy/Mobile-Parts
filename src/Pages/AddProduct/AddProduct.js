@@ -14,16 +14,16 @@ const AddProduct = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data) => {
-    fetch(`https://young-cove-10389.herokuapp.com/parts`, {
+  const onSubmit = data => {
+    fetch(`https://tame-red-magpie-shoe.cyclic.app/parts`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data) {
           toast.success("Product Added successfully.", {
             toastId: "success1",

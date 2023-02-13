@@ -14,14 +14,14 @@ const Payment = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`https://young-cove-10389.herokuapp.com/myOrders/payment/${id}`, {
+    fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/payment/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
+      .then(res => res.json())
+      .then(data => setProduct(data));
   }, [id]);
   return (
     <div>
