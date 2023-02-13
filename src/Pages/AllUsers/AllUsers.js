@@ -13,27 +13,27 @@ const AllUsers = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/users`, {
+    fetch(`https://young-cove-10389.herokuapp.com/users`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setUsers(data);
       });
   }, [email, reload]);
 
-  const handleAdmin = email => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/user/admin/${email}`, {
+  const handleAdmin = (email) => {
+    fetch(`https://young-cove-10389.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data) {
           toast.success("Successfully made Admin.", {
             toastId: "success1",
@@ -45,16 +45,16 @@ const AllUsers = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://tame-red-magpie-shoe.cyclic.app/users/${userId}`, {
+      fetch(`https://young-cove-10389.herokuapp.com/users/${userId}`, {
         method: "DELETE",
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.deletedCount > 0) {
             toast.success("User Deleted", {
               toastId: "success1",
             });
-            const rest = users.filter(user => user._id !== userId);
+            const rest = users.filter((user) => user._id !== userId);
             setUsers(rest);
             setConfirm(false);
           }
@@ -78,7 +78,7 @@ const AllUsers = () => {
             </tr>
           </thead>
 
-          {users?.map(user => (
+          {users?.map((user) => (
             <tbody key={user._id}>
               <tr className="border">
                 <td className="border">{user.email}</td>

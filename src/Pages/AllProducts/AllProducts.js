@@ -8,28 +8,28 @@ const AllProducts = () => {
   const [AllProducts, setAllProducts] = useState([]);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/parts`, {
+    fetch(`https://young-cove-10389.herokuapp.com/parts`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then(res => res.json())
-      .then(data => setAllProducts(data));
+      .then((res) => res.json())
+      .then((data) => setAllProducts(data));
   }, [reload]);
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://tame-red-magpie-shoe.cyclic.app/parts/${productId}`, {
+      fetch(`https://young-cove-10389.herokuapp.com/parts/${productId}`, {
         method: "DELETE",
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.deletedCount > 0) {
             toast.success("Order Cancelled", {
               toastId: "success1",
             });
-            const rest = AllProducts.filter(order => order._id !== productId);
+            const rest = AllProducts.filter((order) => order._id !== productId);
             setAllProducts(rest);
             setConfirm(false);
             setReload(!reload);
@@ -53,7 +53,7 @@ const AllProducts = () => {
             </tr>
           </thead>
 
-          {AllProducts?.map(product => (
+          {AllProducts?.map((product) => (
             <tbody className="child:text-lg" key={product._id}>
               <tr className="border">
                 <td className="border">{product.name}</td>

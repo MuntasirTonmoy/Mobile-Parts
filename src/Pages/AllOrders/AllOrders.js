@@ -4,9 +4,9 @@ const AllOrders = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch("https://tame-red-magpie-shoe.cyclic.app/myOrders")
-      .then(res => res.json())
-      .then(data => setProducts(data));
+    fetch("https://young-cove-10389.herokuapp.com/myOrders")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
   }, []);
   return (
     <div className="lg:mx-10 mx-6 mt-10 mb-10">
@@ -24,7 +24,7 @@ const AllOrders = () => {
             </tr>
           </thead>
 
-          {products?.map(product => (
+          {products?.map((product) => (
             <tbody key={product._id}>
               <tr className="border">
                 <td className="border">{product.name}</td>
