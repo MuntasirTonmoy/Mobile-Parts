@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import { BsCheck2Circle } from "react-icons/bs";
 import { useForm } from "react-hook-form";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const Purchase = () => {
   const [user] = useAuthState(auth);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [selectedPart, setSelectedPart] = useState({});
   useEffect(() => {
@@ -53,12 +54,15 @@ const Purchase = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data) {
+        if (data.acknowledged === true) {
           toast.success("Order Placed Successfully", {
             toastId: "success1",
           });
           reset();
           setLoad(!load);
+          setTimeout(() => {
+            navigate(`/dashboard/myOrders/${user.email}`);
+          }, 2000);
         }
       });
   };

@@ -145,7 +145,7 @@ const Navbar = () => {
                       className="pr-5 flex items-center gap-2 uppercase font-bold btn btn-outline btn-primary"
                     >
                       <FiPower className="text-2xl"></FiPower>
-                      Log out
+                      sign out
                     </span>
                   </li>
                 </ul>
@@ -195,7 +195,7 @@ const Navbar = () => {
                         className="pr-5 flex items-center gap-2 uppercase font-bold btn btn-outline btn-primary"
                       >
                         <FiPower className="text-2xl"></FiPower>
-                        Log out
+                        sign out
                       </span>
                     </li>
                   </ul>
@@ -208,7 +208,7 @@ const Navbar = () => {
                 <CustomLink to="/login">
                   <span className=" btn pr-5  btn-outline btn-primary text-black rounded flex items-center justify-center gap-2 uppercase font-bold">
                     <BiLogIn className="text-2xl"></BiLogIn>
-                    Login
+                    sign in
                   </span>
                 </CustomLink>
                 <CustomLink to="/signUp">

@@ -18,31 +18,6 @@ const Parts = () => {
       });
   }, []);
 
-  /* function onSelectionChange(e) {
-    const sortDirection = e.target.value;
-    let copyArray = [...parts];
-    if (sortDirection === "default") {
-      setSortData(parts);
-    } else {
-      switch (sortDirection) {
-        case "ascending":
-          copyArray.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-        case "descending":
-          copyArray.sort((a, b) => b.name.localeCompare(a.name));
-          break;
-        case "low-to-high":
-          copyArray.sort((a, b) => a.price - b.price);
-          break;
-        case "high-to-low":
-          copyArray.sort((a, b) => b.price - a.price);
-          break;
-        default:
-      }
-    }
-    setParts(copyArray); // async thats why its run later after
-  } */
-
   useEffect(() => {
     console.log("run first", sortType);
     let copyArray = [...parts]; // each time useEffect run it is copying data from parts as parts remain intact it is copying default data each time
@@ -71,21 +46,23 @@ const Parts = () => {
         <h1 className="text-center text-5xl font-serif font-bold lg:mt-20 mt-14 mb-10 text-primary lg:underline lg:underline-offset-8">
           Our Products
         </h1>
-        <div className="w-full flex md:justify-start justify-center mb-3">
-          <div className="font-[600] ml-2 text-[1.15rem]">
-            Sort:
-            <select
-              className="select select-bordered ml-3"
-              onChange={e => setSortType(e.target.value)}
-            >
-              <option value="default">Default</option>
-              <option value="ascending">Alphabetically, A-Z</option>
-              <option value="descending">Alphabetically, Z-A</option>
-              <option value="low-to-high">Price (Low to high)</option>
-              <option value="high-to-low">Price (High to low)</option>
-            </select>
+        {!loading && (
+          <div className="w-full flex md:justify-start justify-center mb-3">
+            <div className="font-[600] ml-2 text-[1.15rem]">
+              Sort:
+              <select
+                className="select select-bordered ml-3"
+                onChange={e => setSortType(e.target.value)}
+              >
+                <option value="default">Default</option>
+                <option value="ascending">Alphabetically, A-Z</option>
+                <option value="descending">Alphabetically, Z-A</option>
+                <option value="low-to-high">Price (Low to high)</option>
+                <option value="high-to-low">Price (High to low)</option>
+              </select>
+            </div>
           </div>
-        </div>
+        )}
         {loading ? (
           <Loading />
         ) : (

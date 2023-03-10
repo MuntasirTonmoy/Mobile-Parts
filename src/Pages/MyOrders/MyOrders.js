@@ -69,7 +69,7 @@ const MyOrders = () => {
                   {order?.paid ? (
                     <p className="text-lg text-green-500 ">Paid</p>
                   ) : (
-                    <CustomLink to={`/dashboard/payment/${order._id}`}>
+                    <CustomLink to={`/payment/${order._id}`}>
                       <button className="btn btn-sm btn-success text-white">
                         Pay Now
                       </button>

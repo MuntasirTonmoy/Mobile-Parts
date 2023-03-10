@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -36,7 +36,7 @@ const Login = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     const { email, password } = data;
     signInWithEmailAndPassword(email, password);
     reset();
@@ -64,8 +64,8 @@ const Login = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-10 mb-10">
         <div className="form-control mx-auto   lg:max-w-md max-w-xs shadow-xl p-10 rounded-2xl">
-          <h1 className=" text-3xl text-center font-bold uppercase">Login</h1>
-          <p className="text-sm text-center mt-2 mb-2">
+          <h1 className="text-3xl text-center font-bold uppercase">Sign in</h1>
+          <p className="text-center mt-2 mb-2">
             Don't have an account?{" "}
             <CustomLink to="/signUp">
               <span className="text-primary font-bold">Sign Up</span>
@@ -147,7 +147,7 @@ const Login = () => {
             type="submit"
             className="flex items-center justify-center gap-2 btn btn-primary  text-white text-md mt-2"
           >
-            <BiLogIn className="text-2xl mr-1" /> LogIn
+            <BiLogIn className="text-2xl mr-1" /> Sign in
           </button>
           <div className="divider my-5">OR</div>
           <button

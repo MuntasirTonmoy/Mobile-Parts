@@ -42,7 +42,7 @@ function App() {
               </RequireAuth>
             }
           ></Route>
-
+          <Route path="/payment/:id" element={<Payment></Payment>}></Route>
           <Route
             path="/dashboard"
             element={
@@ -84,7 +84,6 @@ function App() {
               }
             ></Route>
             <Route path="addReview" element={<AddReview></AddReview>}></Route>
-            <Route path="payment/:id" element={<Payment></Payment>}></Route>
             <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
             <Route
               path="updateProfile"

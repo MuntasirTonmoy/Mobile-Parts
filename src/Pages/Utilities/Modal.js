@@ -15,17 +15,17 @@ const Modal = ({ setConfirm }) => {
           </p>
           <div className="modal-action justify-center gap-4">
             <label
-              onClick={() => setConfirm(true)}
               htmlFor="confirm-modal"
-              className="btn btn-error"
-            >
-              Confirm
-            </label>
-            <label
-              htmlFor="confirm-modal"
-              className="btn btn-success modal-button"
+              className="btn btn-error modal-button"
             >
               Cancel
+            </label>
+            <label
+              onClick={() => setConfirm(true)}
+              htmlFor="confirm-modal"
+              className="btn btn-success"
+            >
+              Confirm
             </label>
           </div>
         </div>
