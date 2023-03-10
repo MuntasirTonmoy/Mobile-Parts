@@ -68,21 +68,23 @@ const Parts = () => {
   return (
     <>
       <div className="lg:mx-10 mx-6 mt-10">
-        <h1 className="text-center text-5xl font-serif font-bold lg:mt-20 mt-14 mb-10 text-primary">
+        <h1 className="text-center text-5xl font-serif font-bold lg:mt-20 mt-14 mb-10 text-primary lg:underline lg:underline-offset-8">
           Our Products
         </h1>
-        <div className="mb-3">
-          Sort:
-          <select
-            className="select select-bordered ml-3"
-            onChange={e => setSortType(e.target.value)}
-          >
-            <option value="default">Default</option>
-            <option value="ascending">Alphabetically, A-Z</option>
-            <option value="descending">Alphabetically, Z-A</option>
-            <option value="low-to-high">Price (Low to high)</option>
-            <option value="high-to-low">Price (High to low)</option>
-          </select>
+        <div className="w-full flex md:justify-start justify-center mb-3">
+          <div className="font-[600] ml-2 text-[1.15rem]">
+            Sort:
+            <select
+              className="select select-bordered ml-3"
+              onChange={e => setSortType(e.target.value)}
+            >
+              <option value="default">Default</option>
+              <option value="ascending">Alphabetically, A-Z</option>
+              <option value="descending">Alphabetically, Z-A</option>
+              <option value="low-to-high">Price (Low to high)</option>
+              <option value="high-to-low">Price (High to low)</option>
+            </select>
+          </div>
         </div>
         {loading ? (
           <Loading />
