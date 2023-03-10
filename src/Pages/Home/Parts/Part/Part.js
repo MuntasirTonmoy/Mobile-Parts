@@ -15,7 +15,7 @@ const Part = ({ part }) => {
   } = part;
   return (
     <>
-      <div className="card max-w-lg bg-base-100 shadow-xl">
+      <div className="card max-w-lg bg-base-100 shadow-md">
         <figure className="lg:mx-0 mx-auto">
           <img src={picture} alt={name} className="rounded-xl h-[300px]" />
         </figure>

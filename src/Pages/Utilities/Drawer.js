@@ -13,7 +13,7 @@ export default function Drawer({ children, isOpen, setIsOpen }) {
     >
       <section
         className={
-          " w-screen max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
+          " w-[80vw] max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
           (isOpen ? " translate-x-[15px] " : " translate-x-full ")
         }
       >

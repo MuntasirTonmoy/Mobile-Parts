@@ -43,7 +43,7 @@ const Parts = () => {
   return (
     <>
       <div className="lg:mx-10 mx-6 mt-10">
-        <h1 className="text-center text-5xl font-serif font-bold lg:mt-20 mt-14 mb-10 text-primary lg:underline lg:underline-offset-8">
+        <h1 className="text-center text-5xl font-serif font-bold lg:mt-20 mt-14 mb-10 text-primary">
           Our Products
         </h1>
         {!loading && (
@@ -66,7 +66,7 @@ const Parts = () => {
         {loading ? (
           <Loading />
         ) : (
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12">
             {sortData.map(part => (
               <Part key={part._id} part={part}></Part>
             ))}

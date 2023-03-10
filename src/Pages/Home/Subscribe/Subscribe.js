@@ -3,7 +3,7 @@ import React from "react";
 const Subscribe = () => {
   return (
     <>
-      <div className="lg:mx-10 mx-6 lg:mt-14 mt-10">
+      <div className="lg:mx-10 mx-6 lg:mt-20 mt-16">
         <section className="w-full bg-secondary rounded-xl ">
           <div className="container px-4 py-5 mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3">

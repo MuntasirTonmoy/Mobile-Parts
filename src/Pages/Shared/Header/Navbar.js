@@ -6,84 +6,28 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { FiPower } from "react-icons/fi";
 import { signOut } from "firebase/auth";
 import CustomLink from "../../Utilities/CustomLink";
+import { BsCart4 } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
 
-const Navbar = () => {
+const Navbar = ({ setIsOpen }) => {
   const [user] = useAuthState(auth);
   return (
     <>
       <div className="navbar sticky top-0 z-50 bg-slate-50">
-        <div className="navbar-start">
+        <div className="navbar-start items-center justify-center md:justify-start">
           {/* Mobile */}
-          <div className="dropdown">
-            <label tabIndex="0" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </label>
-            <ul
-              tabIndex="0"
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold uppercase"
-            >
-              {user && (
-                <li>
-                  <CustomLink to="/dashboard">Dashboard</CustomLink>
-                </li>
-              )}
-            </ul>
-          </div>
-
-          {/* pc */}
-          <CustomLink to="/">
-            <img
-              src="/images/logo.png"
-              className="w-[200px] hidden lg:block"
-              alt=""
-            />
-          </CustomLink>
-          <ul className="menu menu-horizontal p-0 lg:flex hidden font-bold uppercase">
-            {user && (
-              <li>
-                <CustomLink to="/dashboard">
-                  <div className="indicator">
-                    Dashboard
-                    <span className="badge badge-sm badge-accent text-white">
-                      new
-                    </span>
-                  </div>
-                </CustomLink>
-              </li>
-            )}
-          </ul>
-        </div>
-        <div className="navbar-center  lg:hidden">
-          <CustomLink to="/">
-            <img src="/images/logo.png" className="w-[200px]" alt="" />
-          </CustomLink>
-        </div>
-
-        <div className="navbar-end">
-          {/* mobile */}
-
           {!user ? (
             <>
-              <div className="dropdown dropdown-end lg:hidden flex">
-                <label tabIndex="0" className="btn btn-ghost btn-circle">
-                  <BiLogIn className="text-2xl mr-2"></BiLogIn>
+              <div className="dropdown lg:hidden relative">
+                <label
+                  tabIndex="0"
+                  className="btn btn-ghost btn-circle flex justify-center items-center"
+                >
+                  <AiOutlineMenu className="text-2xl" />
                 </label>
                 <ul
                   tabIndex="0"
-                  className="mt-14  p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                  className="top-[63px] shadow dropdown-content menu px-2 py-4 bg-base-100 rounded-box w-52"
                 >
                   <li>
                     <CustomLink to="/login">
@@ -107,7 +51,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <div className="dropdown dropdown-end lg:hidden flex">
+              <div className="dropdown lg:hidden flex">
                 <label
                   tabIndex="0"
                   className="btn btn-ghost btn-circle avatar mr-2"
@@ -122,7 +66,7 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex="0"
-                  className="mt-14 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 font-bold uppercase"
+                  className="top-[65px] p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52 font-bold uppercase"
                 >
                   <li>
                     <CustomLink to={`/dashboard/myProfile`}>
@@ -152,6 +96,51 @@ const Navbar = () => {
               </div>
             </>
           )}
+
+          {/* pc */}
+          <CustomLink to="/">
+            <img
+              src="/images/logo.png"
+              className="w-[200px] hidden lg:block"
+              alt=""
+            />
+          </CustomLink>
+          <ul className="menu menu-horizontal p-0 lg:flex hidden font-bold uppercase">
+            {user && (
+              <li>
+                <CustomLink to="/dashboard">
+                  <div className="indicator">
+                    Dashboard
+                    <span className="badge badge-sm badge-accent text-white">
+                      new
+                    </span>
+                  </div>
+                </CustomLink>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        <div className="navbar-center  lg:hidden">
+          <CustomLink to="/">
+            <img src="/images/logo.png" className="w-[200px]" alt="" />
+          </CustomLink>
+        </div>
+
+        <div className="navbar-end items-center justify-center md:justify-end md:mr-2">
+          {/* mobile */}
+
+          <div>
+            <button
+              onClick={() => setIsOpen(true)}
+              className="btn btn-ghost btn-circle lg:hidden relative"
+            >
+              <div className="bg-primary px-2 py-1 rounded-full text-white absolute top-0 right-0">
+                9
+              </div>
+              <BsCart4 className="text-3xl" />
+            </button>
+          </div>
 
           {/* pc */}
           {user ? (
