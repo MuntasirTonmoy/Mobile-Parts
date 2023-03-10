@@ -1,6 +1,5 @@
 import React from "react";
 import Ratings from "../../../Utilities/Ratings";
-import userPicture from "../../../../user.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../../firebase.init";
 

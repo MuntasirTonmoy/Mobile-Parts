@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../../logo.png";
 import auth from "../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BiLogIn } from "react-icons/bi";
@@ -7,7 +6,6 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { FiPower } from "react-icons/fi";
 import { signOut } from "firebase/auth";
 import CustomLink from "../../Utilities/CustomLink";
-import userPhoto from "../../../user.png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -37,13 +35,6 @@ const Navbar = () => {
               tabIndex="0"
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold uppercase"
             >
-              <li>
-                <CustomLink to="/blogs">Blogs</CustomLink>
-              </li>
-              <hr />
-              <li>
-                <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
-              </li>
               {user && (
                 <li>
                   <CustomLink to="/dashboard">Dashboard</CustomLink>
@@ -54,15 +45,13 @@ const Navbar = () => {
 
           {/* pc */}
           <CustomLink to="/">
-            <img src={logo} className="w-[200px] hidden lg:block" alt="" />
+            <img
+              src="/images/logo.png"
+              className="w-[200px] hidden lg:block"
+              alt=""
+            />
           </CustomLink>
           <ul className="menu menu-horizontal p-0 lg:flex hidden font-bold uppercase">
-            <li>
-              <CustomLink to="/blogs">Blogs</CustomLink>
-            </li>
-            <li>
-              <CustomLink to="/myPortfolio">My Portfolio</CustomLink>
-            </li>
             {user && (
               <li>
                 <CustomLink to="/dashboard">
@@ -79,7 +68,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-center  lg:hidden">
           <CustomLink to="/">
-            <img src={logo} className="w-[200px]" alt="" />
+            <img src="/images/logo.png" className="w-[200px]" alt="" />
           </CustomLink>
         </div>
 
@@ -125,7 +114,7 @@ const Navbar = () => {
                 >
                   <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img
-                      src={user?.photoURL || userPhoto}
+                      src={user?.photoURL || `/images/user.png`}
                       alt=""
                       referrerPolicy="no-referrer"
                     />
@@ -175,7 +164,7 @@ const Navbar = () => {
                   >
                     <div className=" w-10 rounded-full ring ring-gray-300 ring-offset-secondary ring-offset-2">
                       <img
-                        src={user?.photoURL || userPhoto}
+                        src={user?.photoURL || `/images/user.png`}
                         alt=""
                         referrerPolicy="no-referrer"
                       />

@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../../../bg.jpg";
+
 import { FiSend } from "react-icons/fi";
 
 const About = () => {
@@ -7,7 +7,7 @@ const About = () => {
     <>
       <div
         style={{
-          background: `url(${bg})`,
+          background: `url('/images/bg.jpg')`,
           backgroundSize: "cover",
         }}
         className="lg:flex justify-around items-center  lg:px-10 px-6 lg:mt-14 mt-10 py-10"
