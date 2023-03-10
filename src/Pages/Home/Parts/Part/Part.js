@@ -20,13 +20,11 @@ const Part = ({ part }) => {
           <img src={picture} alt={name} className="rounded-xl h-[300px]" />
         </figure>
         <div className="card-body">
-          <div className="ml-2 text-lg">
-            <h2 className="card-title text-2xl">{name}</h2>
-            <p className="mt-2 lg:block hidden">{description}</p>
-            <p className="mt-2 lg:hidden truncate">{description}</p>
-            <p>Price: ${price}</p>
-            <p>Minimun order quantity: {minQuantity}</p>
-            <p>Available: {availableQuantity}</p>
+          <div className="text-lg ml-2">
+            <h2 className="card-title text-2xl mb-3">{name}</h2>
+            <p className="text-xl mb-2 font-semibold">
+              Price: <span className="text-green-700">${price}</span>
+            </p>
           </div>
           <div className="w-full mt-2">
             <button

@@ -11,7 +11,7 @@ const Banner = () => {
         }}
         className="hero min-h-[calc(100vh-84.68px)] "
       >
-        <div className="hero-content flex-col lg:flex-row-reverse gap-10 lg:gap-40 text-center lg:text-left">
+        <div className="hero-content flex-col lg:flex-row-reverse gap-10 lg:gap-56 text-center lg:text-left">
           <img
             src="/images/hero.png"
             className="max-h-[500px] rounded-lg shadow-2xl  order-2 lg:order-1"
@@ -22,7 +22,7 @@ const Banner = () => {
               We sell Mobile Parts
             </h1>
             <p className="py-6 text-xl text-black">
-              Welcome to MOBILE PARTS. Mobile parts is the largest cellphone
+              Welcome to Mobile parts. Mobile parts is the largest cellphone
               parts provider. We ensure best quality products around the world.{" "}
               Buy from us for the best experience.
             </p>

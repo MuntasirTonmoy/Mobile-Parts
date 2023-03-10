@@ -28,7 +28,7 @@ const Subscribe = () => {
               </div>
               <div className="text-center text-accent my-auto">
                 <h2 className="lg:text-xl md:text-xl text-xs lg:mb-0 mb-2">
-                  Join to get information coupons.
+                  get discount coupons!
                 </h2>
               </div>
               <div className="py-2 mx-4 lg:py-10">
