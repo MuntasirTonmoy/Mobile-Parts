@@ -80,7 +80,7 @@ const Navbar = ({ setIsOpen }) => {
             </>
           ) : (
             <>
-              <div className="dropdown lg:hidden flex">
+              <div className="dropdown dropdown-end lg:hidden flex">
                 <label
                   tabIndex="0"
                   className="btn btn-ghost btn-circle avatar mr-2"

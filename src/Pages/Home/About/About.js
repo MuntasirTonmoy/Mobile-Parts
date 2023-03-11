@@ -17,7 +17,7 @@ const About = () => {
             <h1 className="text-5xl font-bold text-primary font-serif">
               Contact Us
             </h1>
-            <p className="py-3 text-xl">
+            <p className="py-5 text-xl">
               For all queries please email us using the form. We will contact
               you as soon as possible.
             </p>

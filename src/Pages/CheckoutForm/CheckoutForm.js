@@ -101,7 +101,7 @@ const CheckoutForm = ({ product }) => {
   };
 
   return (
-    <div className="card w-[50vw] max-w-md bg-base-100 shadow-xl lg:mx-auto mt-10">
+    <div className="card w-[80vw] max-w-lg bg-base-100 shadow-xl lg:mx-auto mt-10">
       <div className="card-body">
         <div className="">
           {paymentError && <p className="text-red-500">{paymentError}</p>}

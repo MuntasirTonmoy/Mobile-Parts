@@ -45,7 +45,7 @@ const Parts = () => {
           Our Products
         </h1>
         {!loading && (
-          <div className="w-full flex md:justify-start justify-center mb-3">
+          <div className="w-full flex md:justify-start justify-center mb-10">
             <div className="font-[600] ml-2 text-[1.15rem]">
               Sort:
               <select
