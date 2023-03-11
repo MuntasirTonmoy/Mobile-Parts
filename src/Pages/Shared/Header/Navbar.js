@@ -16,6 +16,35 @@ const Navbar = ({ setIsOpen }) => {
       <div className="navbar sticky top-0 z-50 bg-slate-50">
         <div className="navbar-start items-center justify-center md:justify-start">
           {/* Mobile */}
+
+          {/* pc */}
+          <CustomLink to="/">
+            <img src="/images/logo.png" className="w-[200px] lg:block" alt="" />
+          </CustomLink>
+          <ul className="menu menu-horizontal p-0 lg:flex hidden font-bold uppercase">
+            {user && (
+              <li>
+                <CustomLink to="/dashboard">
+                  <div className="indicator">
+                    Dashboard
+                    <span className="badge badge-sm badge-accent text-white">
+                      new
+                    </span>
+                  </div>
+                </CustomLink>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        {/* <div className="navbar-center  lg:hidden">
+          <CustomLink to="/">
+            <img src="/images/logo.png" className="w-[200px]" alt="" />
+          </CustomLink>
+        </div> */}
+
+        <div className="navbar-end items-center  md:mr-2">
+          {/* mobile */}
           {!user ? (
             <>
               <div className="dropdown lg:hidden relative">
@@ -97,40 +126,7 @@ const Navbar = ({ setIsOpen }) => {
             </>
           )}
 
-          {/* pc */}
-          <CustomLink to="/">
-            <img
-              src="/images/logo.png"
-              className="w-[200px] hidden lg:block"
-              alt=""
-            />
-          </CustomLink>
-          <ul className="menu menu-horizontal p-0 lg:flex hidden font-bold uppercase">
-            {user && (
-              <li>
-                <CustomLink to="/dashboard">
-                  <div className="indicator">
-                    Dashboard
-                    <span className="badge badge-sm badge-accent text-white">
-                      new
-                    </span>
-                  </div>
-                </CustomLink>
-              </li>
-            )}
-          </ul>
-        </div>
-
-        <div className="navbar-center  lg:hidden">
-          <CustomLink to="/">
-            <img src="/images/logo.png" className="w-[200px]" alt="" />
-          </CustomLink>
-        </div>
-
-        <div className="navbar-end items-center justify-center md:justify-end md:mr-2">
-          {/* mobile */}
-
-          <div>
+          {/* <div>
             <button
               onClick={() => setIsOpen(true)}
               className="btn btn-ghost btn-circle lg:hidden relative"
@@ -140,7 +136,7 @@ const Navbar = ({ setIsOpen }) => {
               </div>
               <BsCart4 className="text-3xl" />
             </button>
-          </div>
+          </div> */}
 
           {/* pc */}
           {user ? (
