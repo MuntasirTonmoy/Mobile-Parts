@@ -47,7 +47,7 @@ const Navbar = ({ setIsOpen }) => {
           {/* mobile */}
           {!user ? (
             <>
-              <div className="dropdown lg:hidden relative">
+              <div className="dropdown dropdown-end lg:hidden relative">
                 <label
                   tabIndex="0"
                   className="btn btn-ghost btn-circle flex justify-center items-center"
