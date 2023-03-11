@@ -9,7 +9,6 @@ const Parts = () => {
   const [sortData, setSortData] = useState([]);
 
   useEffect(() => {
-    console.log("fetching data");
     fetch("https://tame-red-magpie-shoe.cyclic.app/parts")
       .then(response => response.json())
       .then(data => {
@@ -19,7 +18,6 @@ const Parts = () => {
   }, []);
 
   useEffect(() => {
-    console.log("run first", sortType);
     let copyArray = [...parts]; // each time useEffect run it is copying data from parts as parts remain intact it is copying default data each time
     switch (sortType) {
       case "ascending":

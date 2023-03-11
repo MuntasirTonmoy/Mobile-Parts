@@ -10,7 +10,7 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const { id } = useParams();
-  console.log(id);
+
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -24,7 +24,10 @@ const Payment = () => {
       .then(data => setProduct(data));
   }, [id]);
   return (
-    <div>
+    <div className="min-h-[50vh] flex flex-col items-center">
+      <h1 className="text-center text-primary mt-10 text-3xl text-bold">
+        Payment
+      </h1>
       <Elements stripe={stripePromise}>
         <CheckoutForm product={product} />
       </Elements>

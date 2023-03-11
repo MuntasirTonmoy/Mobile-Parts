@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ product }) => {
   const [user] = useAuthState(auth);
@@ -12,6 +13,7 @@ const CheckoutForm = ({ product }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
   const [paymentId, setPaymentId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -71,7 +73,7 @@ const CheckoutForm = ({ product }) => {
       setPaymentError(intentError?.message);
     } else {
       setPaymentError("");
-      console.log(paymentIntent);
+
       setSuccess("Congratulation! Payment Successfull.");
       setPaymentId(paymentIntent?.id);
       const payment = {
@@ -88,12 +90,18 @@ const CheckoutForm = ({ product }) => {
         body: JSON.stringify(payment),
       })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => {
+          if (data) {
+            setTimeout(() => {
+              navigate(`/dashboard/myOrders/${user.email}`);
+            }, 2000);
+          }
+        });
     }
   };
 
   return (
-    <div className="card max-w-md bg-base-100 shadow-xl lg:mx-auto mt-10">
+    <div className="card w-[50vw] max-w-md bg-base-100 shadow-xl lg:mx-auto mt-10">
       <div className="card-body">
         <div className="">
           {paymentError && <p className="text-red-500">{paymentError}</p>}
@@ -101,7 +109,7 @@ const CheckoutForm = ({ product }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <CardElement
-            options={{
+          /*  options={{
               style: {
                 base: {
                   fontSize: "16px",
@@ -114,7 +122,7 @@ const CheckoutForm = ({ product }) => {
                   color: "#9e2146",
                 },
               },
-            }}
+            }} */
           />
           <button
             className="btn btn-sm mt-4 w-full btn-accent text-white"

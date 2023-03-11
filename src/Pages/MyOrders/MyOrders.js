@@ -13,6 +13,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
   const email = user.email;
   const [myOrders, setMyOrders] = useState([]);
+
   useEffect(() => {
     fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${email}`, {
       method: "GET",
@@ -43,6 +44,35 @@ const MyOrders = () => {
     }
   }, [confirm, orderId, myOrders]);
 
+  const handlePayment = id => {
+    const order = myOrders.find(product => product._id === id);
+    const { picture, _id, price, quantity, name, email, description } = order;
+
+    fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({
+        _id,
+        name,
+        picture,
+        price,
+        quantity,
+        email,
+        description,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.url) {
+          window.location.href = data.url;
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <div className="lg:mx-10 mx-6 mt-10 mb-10">
       <Modal setConfirm={setConfirm} />
@@ -70,7 +100,10 @@ const MyOrders = () => {
                     <p className="text-lg text-green-500 ">Paid</p>
                   ) : (
                     <CustomLink to={`/payment/${order._id}`}>
-                      <button className="btn btn-sm btn-success text-white">
+                      <button
+                        //onClick={() => handlePayment(order._id)}
+                        className="btn btn-sm btn-success text-white"
+                      >
                         Pay Now
                       </button>
                     </CustomLink>
