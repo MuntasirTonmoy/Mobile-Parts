@@ -28,7 +28,6 @@ const MyOrders = () => {
   useEffect(() => {
     if (confirm) {
       const product = myOrders.find(elm => elm._id === orderId);
-      console.log(product);
 
       fetch(`${process.env.REACT_APP_SERVER_URL}/parts`, {
         method: "PATCH",

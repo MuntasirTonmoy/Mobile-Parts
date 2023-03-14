@@ -14,7 +14,6 @@ const CheckoutForm = ({ product }) => {
   const [success, setSuccess] = useState("");
   const [paymentId, setPaymentId] = useState("");
   const navigate = useNavigate();
-  console.log(product);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
