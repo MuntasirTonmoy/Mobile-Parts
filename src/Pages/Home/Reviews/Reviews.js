@@ -39,7 +39,7 @@ const Reviews = () => {
     ],
   };
   useEffect(() => {
-    fetch("https://tame-red-magpie-shoe.cyclic.app/reviews")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`)
       .then(response => response.json())
       .then(data => {
         setReviews(data);

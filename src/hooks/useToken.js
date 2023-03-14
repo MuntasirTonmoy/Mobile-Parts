@@ -6,7 +6,7 @@ const useToken = user => {
     const email = user?.user?.email;
     const currentUser = { email: email };
     if (email) {
-      fetch(`https://tame-red-magpie-shoe.cyclic.app/user/${email}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/user/${email}`, {
         method: "PUT",
         body: JSON.stringify(currentUser),
         headers: {

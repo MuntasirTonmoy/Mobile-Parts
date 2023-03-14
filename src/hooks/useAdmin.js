@@ -5,7 +5,7 @@ const useAdmin = user => {
   const [admin, setAdmin] = useState(false);
   const [adminLoading, setAdminLoading] = useState(true);
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/admin/${email}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/admin/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

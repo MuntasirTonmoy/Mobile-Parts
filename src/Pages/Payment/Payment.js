@@ -14,7 +14,7 @@ const Payment = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/payment/${id}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders/payment/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

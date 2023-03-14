@@ -9,7 +9,7 @@ const Parts = () => {
   const [sortData, setSortData] = useState([]);
 
   useEffect(() => {
-    fetch("https://tame-red-magpie-shoe.cyclic.app/parts")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/parts`)
       .then(response => response.json())
       .then(data => {
         setParts(data);

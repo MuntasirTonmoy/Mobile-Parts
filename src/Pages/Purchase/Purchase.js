@@ -13,7 +13,7 @@ const Purchase = () => {
 
   const [selectedPart, setSelectedPart] = useState({});
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/purchase/${id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/purchase/${id}`)
       .then(res => res.json())
       .then(data => setSelectedPart(data));
   }, [id]);
@@ -44,7 +44,7 @@ const Purchase = () => {
     const { name, picture, price, description } = selectedPart;
     const { quantity } = data;
 
-    fetch("https://tame-red-magpie-shoe.cyclic.app/myOrders", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders`, {
       method: "POST",
       body: JSON.stringify({ ...data, name, picture, price, description }),
       headers: {
@@ -59,7 +59,7 @@ const Purchase = () => {
           });
           reset();
 
-          fetch("https://tame-red-magpie-shoe.cyclic.app/parts", {
+          fetch(`${process.env.REACT_APP_SERVER_URL}/parts`, {
             method: "PATCH",
             body: JSON.stringify({
               _id,

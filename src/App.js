@@ -26,14 +26,13 @@ import AllOrders from "./Pages/AllOrders/AllOrders";
 import AddProduct from "./Pages/AddProduct/AddProduct";
 import AllProducts from "./Pages/AllProducts/AllProducts";
 import Payment from "./Pages/Payment/Payment";
-import { useState } from "react";
+import UpdateProduct from "./Pages/UpdateProduct/UpdateProduct";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="overflow-x-hidden">
       {/* <Drawer isOpen={isOpen} setIsOpen={setIsOpen} /> */}
-      <Navbar setIsOpen={setIsOpen}></Navbar>
+      <Navbar></Navbar>
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
@@ -59,6 +58,14 @@ function App() {
               element={
                 <RequireAdmin>
                   <AllUsers></AllUsers>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="updateProduct/:id"
+              element={
+                <RequireAdmin>
+                  <UpdateProduct></UpdateProduct>
                 </RequireAdmin>
               }
             ></Route>

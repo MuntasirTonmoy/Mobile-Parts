@@ -22,7 +22,7 @@ const AddReview = () => {
   const onSubmit = data => {
     const numberRatings = parseInt(data?.ratings);
     data.ratings = numberRatings;
-    fetch("https://tame-red-magpie-shoe.cyclic.app/reviews", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

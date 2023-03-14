@@ -19,7 +19,7 @@ const CheckoutForm = ({ product }) => {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     if (price) {
-      fetch("https://tame-red-magpie-shoe.cyclic.app/create-payment-intent", {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/create-payment-intent`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const CheckoutForm = ({ product }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${_id}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders/${_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

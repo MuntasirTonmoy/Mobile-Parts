@@ -4,7 +4,7 @@ const AllOrders = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch("https://tame-red-magpie-shoe.cyclic.app/myOrders")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders`)
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);

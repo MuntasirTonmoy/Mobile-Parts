@@ -15,7 +15,7 @@ const AddProduct = () => {
   });
 
   const onSubmit = data => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/parts`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/parts`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

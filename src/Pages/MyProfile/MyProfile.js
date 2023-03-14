@@ -10,7 +10,7 @@ const MyProfile = () => {
   const [userInfo, setUserPrfl] = useState([]);
 
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/user/${email}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

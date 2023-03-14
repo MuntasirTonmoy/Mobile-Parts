@@ -15,7 +15,7 @@ const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${email}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -27,7 +27,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://tame-red-magpie-shoe.cyclic.app/myOrders/${orderId}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders/${orderId}`, {
         method: "DELETE",
       })
         .then(res => res.json())

@@ -13,7 +13,7 @@ const AllUsers = () => {
   const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/users`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/users`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ const AllUsers = () => {
   }, [email, reload]);
 
   const handleAdmin = email => {
-    fetch(`https://tame-red-magpie-shoe.cyclic.app/user/admin/${email}`, {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -45,7 +45,7 @@ const AllUsers = () => {
 
   useEffect(() => {
     if (confirm) {
-      fetch(`https://tame-red-magpie-shoe.cyclic.app/users/${userId}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/users/${userId}`, {
         method: "DELETE",
       })
         .then(res => res.json())
