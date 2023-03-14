@@ -18,8 +18,6 @@ const Purchase = () => {
       .then(data => setSelectedPart(data));
   }, [id]);
 
-  const [load, setLoad] = useState(true);
-
   const {
     _id,
     name,
@@ -44,6 +42,7 @@ const Purchase = () => {
 
   const onSubmit = data => {
     const { name, picture, price, description } = selectedPart;
+    const { quantity } = data;
 
     fetch("https://tame-red-magpie-shoe.cyclic.app/myOrders", {
       method: "POST",
@@ -59,7 +58,20 @@ const Purchase = () => {
             toastId: "success1",
           });
           reset();
-          setLoad(!load);
+
+          fetch("https://tame-red-magpie-shoe.cyclic.app/parts", {
+            method: "PATCH",
+            body: JSON.stringify({
+              _id,
+              availableQuantity: availableQuantity - quantity,
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          })
+            .then(res => res.json())
+            .then(data => console.log(data));
+
           setTimeout(() => {
             navigate(`/dashboard/myOrders/${user.email}`);
           }, 2000);
@@ -85,7 +97,14 @@ const Purchase = () => {
                 Price: ${price}/<small>unit</small>
               </p>
               <p className="mt-3">Minimun Order quantity: {minQuantity}</p>
-              <p className="mt-3">Available Quantity: {availableQuantity}</p>
+              <p className="mt-3">
+                Available Quantity:{" "}
+                {availableQuantity < minQuantity ? (
+                  <span className="text-red-500">Stock out</span>
+                ) : (
+                  availableQuantity
+                )}
+              </p>
             </div>
             <hr className="lg:hidden " />
 
@@ -121,7 +140,10 @@ const Purchase = () => {
                 {minQuantity && (
                   <input
                     type="number"
-                    defaultValue={minQuantity}
+                    disabled={availableQuantity < minQuantity}
+                    defaultValue={
+                      availableQuantity < minQuantity ? ` ` : minQuantity
+                    }
                     className="input input-bordered w-full max-w-md"
                     {...register("quantity", {
                       required: {
@@ -161,6 +183,7 @@ const Purchase = () => {
                 </label>
                 <input
                   type="phone"
+                  disabled={availableQuantity < minQuantity}
                   placeholder=""
                   className="input input-bordered w-full max-w-md"
                   {...register("phone", {
@@ -193,6 +216,7 @@ const Purchase = () => {
                 </label>
                 <textarea
                   type="text"
+                  disabled={availableQuantity < minQuantity}
                   placeholder=""
                   className="textarea textarea-bordered w-full max-w-md"
                   {...register("address", {
@@ -210,7 +234,10 @@ const Purchase = () => {
                   )}
                 </label>
                 <div>
-                  {errors.quantity || errors.phone || errors.address ? (
+                  {availableQuantity < minQuantity ||
+                  errors.quantity ||
+                  errors.phone ||
+                  errors.address ? (
                     <button
                       type="submit"
                       disabled

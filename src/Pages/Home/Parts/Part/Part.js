@@ -25,9 +25,17 @@ const Part = ({ part }) => {
             <p className="text-xl mb-2 font-semibold">
               Price: <span className="text-green-700">${price}</span>
             </p>
+            <p>
+              {availableQuantity < minQuantity ? (
+                <span className="text-red-500">Stock Out</span>
+              ) : (
+                <span className="text-green-500">In Stock</span>
+              )}
+            </p>
           </div>
           <div className="w-full mt-2">
             <button
+              disabled={availableQuantity < minQuantity}
               onClick={() => navigate(`purchase/${_id}`)}
               className="btn btn-primary text-white w-full "
             >
