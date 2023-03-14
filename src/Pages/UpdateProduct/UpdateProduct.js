@@ -33,12 +33,24 @@ const UpdateProduct = () => {
   });
 
   const onSubmit = data => {
-    console.log(data);
+    const {
+      name,
+      picture,
+      description,
+      price,
+      minQuantity,
+      availableQuantity,
+    } = data;
     fetch(`${process.env.REACT_APP_SERVER_URL}/updatepart`, {
       method: "PATCH",
       body: JSON.stringify({
         id,
-        ...data,
+        name,
+        picture,
+        description,
+        price: parseInt(price),
+        minQuantity: parseInt(minQuantity),
+        availableQuantity: parseInt(availableQuantity),
       }),
       headers: {
         "Content-type": "application/json",

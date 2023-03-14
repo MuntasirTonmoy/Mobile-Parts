@@ -27,6 +27,24 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (confirm) {
+      const product = myOrders.find(elm => elm._id === orderId);
+      console.log(product);
+
+      fetch(`${process.env.REACT_APP_SERVER_URL}/parts`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          _id: product.productId,
+          availableQuantity: parseInt(
+            parseInt(product.availableQuantity + product.quantity)
+          ),
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then(res => res.json())
+        .then(data => console.log("update", data));
+
       fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders/${orderId}`, {
         method: "DELETE",
       })
@@ -44,7 +62,7 @@ const MyOrders = () => {
     }
   }, [confirm, orderId, myOrders]);
 
-  const handlePayment = id => {
+  /* const handlePayment = id => {
     const order = myOrders.find(product => product._id === id);
     const { picture, _id, price, quantity, name, email, description } = order;
 
@@ -72,7 +90,7 @@ const MyOrders = () => {
       })
       .catch(err => console.log(err));
   };
-
+ */
   return (
     <div className="lg:mx-10 mx-6 mt-10 mb-10">
       <Modal setConfirm={setConfirm} />

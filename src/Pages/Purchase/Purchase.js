@@ -42,11 +42,24 @@ const Purchase = () => {
 
   const onSubmit = data => {
     const { name, picture, price, description } = selectedPart;
-    const { quantity } = data;
+    const { address, email, phone, quantity, userName } = data;
+    console.log(data);
 
     fetch(`${process.env.REACT_APP_SERVER_URL}/myOrders`, {
       method: "POST",
-      body: JSON.stringify({ ...data, name, picture, price, description }),
+      body: JSON.stringify({
+        productId: id,
+        name,
+        userName,
+        phone,
+        email,
+        address,
+        picture,
+        description,
+        price: parseInt(price),
+        availableQuantity: parseInt(availableQuantity - quantity),
+        quantity: parseInt(quantity),
+      }),
       headers: {
         "Content-type": "application/json",
       },
@@ -63,7 +76,7 @@ const Purchase = () => {
             method: "PATCH",
             body: JSON.stringify({
               _id,
-              availableQuantity: availableQuantity - quantity,
+              availableQuantity: parseInt(availableQuantity - quantity),
             }),
             headers: {
               "Content-type": "application/json",

@@ -3,7 +3,6 @@ import Ratings from "../../../Utilities/Ratings";
 
 const Review = ({ review }) => {
   const { userName, picture, comment, ratings } = review;
-  console.log(picture);
 
   return (
     <>
